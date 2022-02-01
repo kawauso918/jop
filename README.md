@@ -1,5 +1,4 @@
-# <タイトル>
-Photo
+### Photo
 
 ## サイト概要
 写真専門のSNSのサイトです。気にいった写真にコメントやいいねをすることができます。また、フォロー・フォロワーもすることができて、人と会えない時間が増える中、写真を通して繋がれるようにサイトを作りました。
@@ -22,7 +21,7 @@ Photo
 
 
 ## チャレンジ要素一覧
-https://docs.google.com/spreadsheets/d/1KKSOLVi9FaGElQvK_-Oa81_cxu5MD2Pbg_JXkzHUw_0/edit#gid=566224576
+https://docs.google.com/spreadsheets/d/1KKSOLVi9FaGElQvK_-Oa81_cxu5MD2Pbg_JXkzHUw_0/edit?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -30,4 +29,3 @@ https://docs.google.com/spreadsheets/d/1KKSOLVi9FaGElQvK_-Oa81_cxu5MD2Pbg_JXkzHU
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-# photo
