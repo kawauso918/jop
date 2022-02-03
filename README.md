@@ -18,11 +18,7 @@
 撮った写真をすぐに共有したい時や今までの思い出に残った写真を共有したい時など。
 
 ## 設計書
-
-テーブル定義書
 https://docs.google.com/spreadsheets/d/1IReQXf2kWNWgXKNRycjCuNHm3HJU-b4Q4TQzKf8Qz5A/edit?usp=sharing
-アプリケーション詳細設計
-https://docs.google.com/spreadsheets/d/1SG4Mm8bssv_e-ahGtRoxAwb0T3Y0utqGKv7CVZteeWI/edit?usp=sharing
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1KKSOLVi9FaGElQvK_-Oa81_cxu5MD2Pbg_JXkzHUw_0/edit?usp=sharing
