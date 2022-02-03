@@ -29,4 +29,4 @@ https://docs.google.com/spreadsheets/d/1KKSOLVi9FaGElQvK_-Oa81_cxu5MD2Pbg_JXkzHU
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-![]
+-
