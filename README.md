@@ -20,6 +20,9 @@
 ## 設計書
 https://docs.google.com/spreadsheets/d/1IReQXf2kWNWgXKNRycjCuNHm3HJU-b4Q4TQzKf8Qz5A/edit?usp=sharing
 
+##  ER図
+https://app.diagrams.net/#G1vRFJEJSZdhoPTBorFRWEw48kT7z3Xyww
+
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1KKSOLVi9FaGElQvK_-Oa81_cxu5MD2Pbg_JXkzHUw_0/edit?usp=sharing
 
@@ -29,4 +32,4 @@ https://docs.google.com/spreadsheets/d/1KKSOLVi9FaGElQvK_-Oa81_cxu5MD2Pbg_JXkzHU
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
--
+
