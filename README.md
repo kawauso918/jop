@@ -19,7 +19,6 @@
 
 ## 設計書
 https://docs.google.com/spreadsheets/d/1IReQXf2kWNWgXKNRycjCuNHm3HJU-b4Q4TQzKf8Qz5A/edit?usp=sharing
-![](jop Untitled Diagram.drawio.pdf)
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1KKSOLVi9FaGElQvK_-Oa81_cxu5MD2Pbg_JXkzHUw_0/edit?usp=sharing
