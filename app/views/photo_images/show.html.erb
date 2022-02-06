@@ -1,0 +1,27 @@
+<div class="container">
+  <div style= "text-align: center;">
+    <%= attachment_image_tag @photo_image, :image %>
+    <p>写真名：<%= @photo_image.name %></p>
+    <p>説明：<%= @photo_image.caption %></p>
+    <p>ユーザーネーム：<%= @photo_image.user.name %></p>
+    <p>投稿日時：<%= @photo_image.created_at.strftime('%Y/%m/%d') %></p>
+    <% if @photo_image.user == current_user %>
+      <%= link_to "削除", photo_image_path(@photo_image), class: "btn btn-sm btn-danger", method: :delete %>
+    <% end %>
+  </div>
+
+  <div style= "text-align: center;">
+    <p>コメント件数：<%= @photo_image.comments.count %></p>
+      <% @photo_image.comments.each do |comment| %>
+        <p><%#= attachment_image_tag photo_image.user, :image %></p>
+          <%= comment.user.name %>
+        <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+      <% end %>
+  </div>
+  <div style= "text-align: center;">
+    <%= form_with(model:[@photo_image, @comment], local: true) do |f| %>
+      <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+      <%= f.submit "送信する" %>
+    <% end %>
+  </div>
+</div>

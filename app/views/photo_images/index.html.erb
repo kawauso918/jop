@@ -1,0 +1,15 @@
+<% @photo_images.each do |photo_image| %>
+<div class="container">
+  <div style="text-align: center;">
+  <p>投稿ユーザー画像<br>
+    <%= link_to photo_image_path(photo_image.id) do %>
+      <%= attachment_image_tag photo_image, :image %>
+    <% end %>
+  </p>
+  <p>写真名：<%= photo_image.name %></p>
+  <p>説明：<%= photo_image.caption %></p>
+  <p>ユーザーネーム：<%= photo_image.user.name %></p>
+  <p><%= link_to "#{photo_image.comments.count} コメント", photo_image_path(photo_image.id) %></p>
+  </div>
+</div>
+<% end %>
