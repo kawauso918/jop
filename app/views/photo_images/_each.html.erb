@@ -1,0 +1,27 @@
+<div class="card-list-container py-5">
+  <% photo_images.each do |photo_image| %>
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <%= link_to photo_image_path(photo_image.id) do %>
+          <%= attachment_image_tag photo_image, :image, class:"card-img-top"; %>
+    <% end %>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-2">
+          <%= attachment_image_tag photo_image.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class:"mt-3 rounded-circle" %>
+        </div>
+        <div class="col-10">
+          <p class="card-title">
+             <%= link_to(photo_image_path(photo_image.id), class:"text-dark") do %>
+              <strong><i class="far fa-hand-point-right"></i><span> <%= photo_image.name %></span></strong>
+            <% end %>
+          </p>
+          <p class="card-text">説明：<%= photo_image.caption %></p>
+          <span><i class="fas fa-running"></i> <%= photo_image.user.name %> | </span>
+          <span><i class="far fa-comment"></i><%= link_to "#{photo_image.comments.count} コメント", photo_image_path(photo_image.id) %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <%= paginate photo_images %>
+</div>

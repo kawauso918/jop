@@ -1,0 +1,19 @@
+<div class="main-visual">
+</div>
+
+
+<div class="container">
+  <div style="text-align: center;">
+    <h3><%= @user.name %></h3>
+      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpeg" %>
+      <% if @user.id == current_user.id %>
+    <p><i class="fas fa-edit"></i><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+      <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <div style="text-align: center;">
+    <%= render 'photo_images/each', photo_images: @photo_images %>
+  </div>
+</div>

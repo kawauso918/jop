@@ -1,14 +1,16 @@
 <div class="container">
-  <div style="text-align: center;">
-    <h1>画像投稿フォーム</h1>
-    <%= form_with model: @photo_image, local:true do |f| %>
-    <h4>画像</h4>
-      <%= f.attachment_field :image %>
-    <h4>写真名</h4>
-      <%= f.text_field :name %>
-    <h4>写真の説明</h4>
-      <%= f.text_area :caption %>
-      <%= f.submit '投稿' %>
-    <% end %>
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h5 class="text-dark bg-light p-4 mb-0">画像投稿フォーム</h5>
+      <div class="form-body p-4">
+        <% if @photo_image.errors.any? %>
+          <%= @photo_image.errors.count %>件のエラーが発生しました
+          <% @photo_image.errors.full_messages.each do |message| %>
+          <%= message %>
+          <% end %>
+        <% end %>
+       <%= render 'photo_images/form', photo_image: @photo_image %>
+      </div>
+    </div>
   </div>
 </div>

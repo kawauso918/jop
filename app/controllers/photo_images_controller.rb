@@ -6,13 +6,16 @@ class PhotoImagesController < ApplicationController
   def create
     @photo_image = PhotoImage.new(photo_image_params)
     @photo_image.user_id = current_user.id
-    @photo_image.save
-    redirect_to photo_images_path
+    if @photo_image.save
+      redirect_to photo_images_path
+    else
+      render :new
+    end
 
   end
 
   def index
-    @photo_images = PhotoImage.all
+    @photo_images = PhotoImage.page(params[:page]).reverse_order
   end
 
   def show

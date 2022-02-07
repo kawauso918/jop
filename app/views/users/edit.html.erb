@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h5 class="text-dark bg-light p-4 mb-0">プロフィール編集</h5>
+      <div class="form-body p-4">
+        <%= form_with model:@user, local:true do |f| %>
+          <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+          <div class="input-group mb-3 mt-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="far fa-user"></i></span>
+            </div>
+              <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
+          </div>
+              <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
+          <hr>
+              <%= f.submit "変更を保存" %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
