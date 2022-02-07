@@ -1,29 +1,34 @@
 class PhotoImagesController < ApplicationController
   def new
-    @photo_image =PhotoImage.new
+    @photo_image = PhotoImage.new
   end
 
   def create
-    @photo_image =PhotoImage.new(photo_image_params)
-    @photo_image.user_id =current_user.id
-    @photo_image.save!
+    @photo_image = PhotoImage.new(photo_image_params)
+    @photo_image.user_id = current_user.id
+    @photo_image.save
     redirect_to photo_images_path
 
   end
 
   def index
-    @photo_images =PhotoImage.all
+    @photo_images = PhotoImage.all
   end
 
   def show
-    @photo_image =PhotoImage.find(params[:id])
-    @comment =Comment.new
+    @photo_image = PhotoImage.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit
+    @photo_image = PhotoImage.find(params[:id])
   end
 
   def update
+    @photo_image = PhotoImage.find(params[:id])
+    @photo_images = PhotoImage.all
+    @photo_image.update(photo_image_params)
+    redirect_to photo_image_path
   end
 
   def destroy

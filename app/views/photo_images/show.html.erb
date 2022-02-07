@@ -6,6 +6,7 @@
     <p>ユーザーネーム：<%= @photo_image.user.name %></p>
     <p>投稿日時：<%= @photo_image.created_at.strftime('%Y/%m/%d') %></p>
     <% if @photo_image.user == current_user %>
+      <%= link_to "編集", edit_photo_image_path(@photo_image), class: "btn btn-sm btn-success" %>
       <%= link_to "削除", photo_image_path(@photo_image), class: "btn btn-sm btn-danger", method: :delete %>
     <% end %>
   </div>
@@ -13,15 +14,35 @@
   <div style= "text-align: center;">
     <p>コメント件数：<%= @photo_image.comments.count %></p>
       <% @photo_image.comments.each do |comment| %>
-        <p><%#= attachment_image_tag photo_image.user, :image %></p>
-          <%= comment.user.name %>
-        <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+        <p><%#= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></p>
+          <p><%= comment.user.name %></p>
+          <p><%= comment.created_at.strftime('%Y/%m/%d') %></p>
+          <p><%= comment.comment %></p>
+          <% if comment.user == current_user %>
+          <div>
+            <%= link_to "削除", photo_image_comment_path(comment.photo_image, comment), method: :delete %>
+          </div>
+          <% end %>
+          <%#= render "favorites/favorite-btn", photo_image: @photo_image %>
+          <% if @photo_image.favorited_by?(current_user) %>
+            <p>
+              <%= link_to photo_image_favorites_path(@photo_image), method: :delete do %>
+              <%= @photo_image.favorites.count %> いいね
+              <% end %>
+            </p>
+          <% else %>
+            <p>
+              <%= link_to photo_image_favorites_path(@photo_image), method: :post do %>
+              <%= @photo_image.favorites.count %> いいね
+              <% end %>
+            </p>
+          <% end %>
       <% end %>
   </div>
   <div style= "text-align: center;">
     <%= form_with(model:[@photo_image, @comment], local: true) do |f| %>
       <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-      <%= f.submit "送信する" %>
+      <%= f.submit "コメントする" %>
     <% end %>
   </div>
 </div>

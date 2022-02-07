@@ -1,0 +1,14 @@
+<div class="container">
+  <div style="text-align: center;">
+    <h1>画像投稿フォーム</h1>
+    <%= form_with model: @photo_image, local:true do |f| %>
+    <label for="photo_image_image">画像</label>
+      <%= f.attachment_field :image %>
+    <label for="photo_image_name">写真名</label>
+      <%= f.text_field :name %>
+    <label for="photo_image_caption">写真の説明</label>
+      <%= f.text_area :caption %>
+      <%= f.submit '更新' %>
+    <% end %>
+  </div>
+</div>
