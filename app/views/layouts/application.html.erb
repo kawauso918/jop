@@ -23,16 +23,19 @@
               <ul class="navbar-nav ml-auto">
                 <% if user_signed_in? %>
                   <li>
+                    <%= link_to "ユーザー一覧", users_path, class: "navbar-brand" %>
+                  </li>
+                  <li>
                     <%= link_to "投稿一覧", photo_images_path, class: "navbar-brand" %>
                   </li>
                   <li>
                     <%= link_to '投稿フォーム',  new_photo_image_path, class: "navbar-brand" %>
                   </li>
                   <li>
-                    <%= link_to "ログアウト", destroy_user_session_path, class: "navbar-brand", method: :delete %>
+                    <%= link_to "プロフィール", user_path(current_user.id), class: "navbar-brand" %>
                   </li>
                   <li>
-                    <%= link_to "マイページ", user_path(current_user.id), class: "navbar-brand" %>
+                    <%= link_to "ログアウト", destroy_user_session_path, class: "navbar-brand", method: :delete %>
                   </li>
                 <% else %>
                   <li>

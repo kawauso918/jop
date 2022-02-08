@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy]
   end
 
-  resources :users, only: [:show, :edit, :update] do
+  resources :users, only: [:index, :show, :edit, :update] do
     resource :follows, only: [:create, :destroy]
     get 'followings' => 'follows#followings', as: 'followings'
     get 'follower' => 'follows#followers', as: 'followers'

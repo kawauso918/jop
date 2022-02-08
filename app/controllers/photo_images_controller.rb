@@ -1,5 +1,6 @@
 class PhotoImagesController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def new
     @photo_image = PhotoImage.new
