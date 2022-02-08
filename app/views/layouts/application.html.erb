@@ -23,20 +23,23 @@
               <ul class="navbar-nav ml-auto">
                 <% if user_signed_in? %>
                   <li>
-                    <%= link_to '投稿フォーム',  new_photo_image_path %>
+                    <%= link_to "投稿一覧", photo_images_path, class: "navbar-brand" %>
                   </li>
                   <li>
-                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                    <%= link_to '投稿フォーム',  new_photo_image_path, class: "navbar-brand" %>
                   </li>
                   <li>
-                    <%= link_to "マイページ", user_path(current_user.id) %>
+                    <%= link_to "ログアウト", destroy_user_session_path, class: "navbar-brand", method: :delete %>
+                  </li>
+                  <li>
+                    <%= link_to "マイページ", user_path(current_user.id), class: "navbar-brand" %>
                   </li>
                 <% else %>
                   <li>
-                    <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
+                    <%= link_to "新規登録", new_user_registration_path, class: "navbar-brand" %>
                   </li>
                   <li>
-                    <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
+                    <%= link_to "ログイン", new_user_session_path, class: "navbar-brand" %>
                   </li>
                 <% end %>
               </ul>
@@ -48,12 +51,13 @@
     <%= yield %>
     </main>
 
-     <footer class="bg-dark text-white pt-5 pb-4">
-      <div class="container">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <p>写真で繋がれるSNS</p>
-            <%= image_tag('no_image.jpg') %>
+     <footer>
+      <div class='container mt-5'>
+        <div class='row'>
+          <div class='mx-auto'>
+            <div class="social">
+              <i class="fas fa-camera-retro"></i><p>写真で繋がるSNS</p>
+            </div>
           </div>
         </div>
       </div>

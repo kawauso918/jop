@@ -3,6 +3,12 @@
     <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
       <h5 class="text-dark bg-light p-4 mb-0">画像投稿フォーム</h5>
       <div class="form-body p-4">
+        <% if @photo_image.errors.any? %>
+          <%= @photo_image.errors.count %>件のエラーが発生しました
+          <% @photo_image.errors.full_messages.each do |message| %>
+          <%= message %>
+          <% end %>
+        <% end %>
       <%= render 'photo_images/form', photo_image: @photo_image %>
       </div>
     </div>

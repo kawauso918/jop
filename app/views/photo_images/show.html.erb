@@ -1,30 +1,29 @@
 <div class="container">
   <div style= "text-align: center;">
     <%= attachment_image_tag @photo_image, :image %>
-    <p>写真名：<%= @photo_image.name %></p>
-    <p>説明：<%= @photo_image.caption %></p>
-    <p>ユーザーネーム：<%= @photo_image.user.name %></p>
-    <p>投稿日時：<%= @photo_image.created_at.strftime('%Y/%m/%d') %></p>
-    <% if @photo_image.user == current_user %>
-      <%= link_to "編集", edit_photo_image_path(@photo_image), class: "btn btn-sm btn-success" %>
-      <%= link_to "削除", photo_image_path(@photo_image), class: "btn btn-sm btn-danger", method: :delete %>
-    <% end %>
-  </div>
+        <p>写真名：<%= @photo_image.name %></p>
+        <p>説明：<%= @photo_image.caption %></p>
+        <p>ユーザーネーム：<%= @photo_image.user.name %></p>
+        <p>投稿日時：<%= @photo_image.created_at.strftime('%Y/%m/%d') %></p>
+        <% if @photo_image.user == current_user %>
+          <%= link_to "編集", edit_photo_image_path(@photo_image), class: "btn btn-sm btn-success" %>
+          <%= link_to "削除", photo_image_path(@photo_image), class: "btn btn-sm btn-danger", method: :delete %>
+        <% end %>
+      </div>
+    </div>
 
   <div style= "text-align: center;">
     <p>コメント件数：<%= @photo_image.comments.count %></p>
       <% @photo_image.comments.each do |comment| %>
-        <p><%= attachment_image_tag @photo_image.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></p>
+        <p><%= attachment_image_tag @photo_image.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg" %>
               <%= comment.user.name %>
               <%= comment.created_at.strftime('%Y/%m/%d') %>
               <%= comment.comment %>
-          <% if comment.user == current_user %>
-          <div>
-            <%= link_to "削除", photo_image_comment_path(comment.photo_image, comment), class: "btn btn-sm btn-danger", method: :delete %>
-          </div>
-          <% end %>
-          <%= render "favorites/favorite-btn", photo_image: @photo_image %>
-
+            <% if comment.user == current_user %>
+              <%= link_to "削除", photo_image_comment_path(comment.photo_image, comment), class: "btn btn-sm btn-danger", method: :delete %>
+            <% end %>
+            <%= render "favorites/favorite-btn", photo_image: @photo_image %>
+        </p>
       <% end %>
   </div>
   <div style= "text-align: center;">

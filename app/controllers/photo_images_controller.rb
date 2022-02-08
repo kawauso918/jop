@@ -1,4 +1,6 @@
 class PhotoImagesController < ApplicationController
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+
   def new
     @photo_image = PhotoImage.new
   end
@@ -44,5 +46,12 @@ class PhotoImagesController < ApplicationController
 
   def photo_image_params
     params.require(:photo_image).permit(:name, :image, :caption)
+  end
+
+  def ensure_correct_user
+      @photo_image = PhotoImage.find(params[:id])
+      unless @photo_image.user == current_user
+        redirect_to photo_images_path
+      end
   end
 end
