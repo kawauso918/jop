@@ -11,13 +11,18 @@
         </div>
         <div class="col-10">
           <p class="card-title">
-             <%= link_to(photo_image_path(photo_image.id), class:"text-dark") do %>
+             <%= link_to photo_image_path(photo_image.id), class:"text-dark" do %>
               <strong><i class="far fa-hand-point-right"></i><span> <%= photo_image.name %></span></strong>
             <% end %>
           </p>
           <p class="card-text">説明：<%= photo_image.caption %></p>
+            <!--idを用いる（1ビュー内で同名のidは存在してはいけないため）-->
+          <div id="photo_image_<%= photo_image.id %>">
           <span><i class="fas fa-running"></i> <%= photo_image.user.name %> | </span>
-          <span><i class="far fa-comment"></i><%= link_to "#{photo_image.comments.count} コメント", photo_image_path(photo_image.id) %></span>
+            <%= render "favorites/favorite-btn", photo_image: photo_image %>
+          <!--クラス名を一意性があるものにする-->
+          <span class="comments-count"> <i class="far fa-comment-alt"></i><%= photo_image.comments.count %></span>
+          </div>
         </div>
       </div>
     </div>

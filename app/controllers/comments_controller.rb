@@ -1,16 +1,21 @@
 class CommentsController < ApplicationController
-  def create
-    photo_image = PhotoImage.find(params[:photo_image_id])
-    comment = current_user.comments.new(comment_params)
-    comment.photo_image_id = photo_image.id
-    comment.save!
-    redirect_to request.referer
-  end
 
-  def destroy
-    Comment.find_by(id: params[:id]).destroy
-    redirect_to request.referer
-  end
+    def create
+        @photo_image = PhotoImage.find(params[:photo_image_id])
+        @comment = Comment.new(comment_params)
+        @comment.photo_image_id = @photo_image.id
+        @comment.user_id = current_user.id
+        unless @comment.save
+            render 'error'
+        end
+    end
+
+    def destroy
+        @photo_image = PhotoImage.find(params[:photo_image_id])
+        comment = @photo_image.comments.find(params[:id])
+        comment.destroy
+    end
+
 
   private
 

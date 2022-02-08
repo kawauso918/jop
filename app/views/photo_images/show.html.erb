@@ -1,6 +1,6 @@
 <div class="container">
   <div style= "text-align: center;">
-    <%= attachment_image_tag @photo_image, :image %>
+    <%= attachment_image_tag @photo_image, :image, class:"card-img-top"; %>
         <p>写真名：<%= @photo_image.name %></p>
         <p>説明：<%= @photo_image.caption %></p>
         <p>ユーザーネーム：<%= @photo_image.user.name %></p>
@@ -13,21 +13,18 @@
     </div>
 
   <div style= "text-align: center;">
-    <p>コメント件数：<%= @photo_image.comments.count %></p>
-      <% @photo_image.comments.each do |comment| %>
-        <p><%= attachment_image_tag @photo_image.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg" %>
-              <%= comment.user.name %>
-              <%= comment.created_at.strftime('%Y/%m/%d') %>
-              <%= comment.comment %>
-            <% if comment.user == current_user %>
-              <%= link_to "削除", photo_image_comment_path(comment.photo_image, comment), class: "btn btn-sm btn-danger", method: :delete %>
-            <% end %>
-            <%= render "favorites/favorite-btn", photo_image: @photo_image %>
-        </p>
-      <% end %>
+    <!--idを用いる（1ビュー内で同名のidは存在してはいけないため）-->
+    <p id="photo_image_<%= @photo_image.id %>">
+
+      <!--クラス名を一意性があるものにする-->
+    <p class="favorite-btn"><%= render "favorites/favorite-btn", photo_image: @photo_image %></p>
+    <p class="comments-count">コメント数: <%= @photo_image.comments.count %></p>
+  </div>
+  <div class="comments">
+        <%= render 'comments/index', photo_image: @photo_image %>
   </div>
   <div style= "text-align: center;">
-    <%= form_with(model:[@photo_image, @comment], local: true) do |f| %>
+    <%= form_with(model:[@photo_image, @comment]) do |f| %>
       <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
       <%= f.submit "コメントする" %>
     <% end %>

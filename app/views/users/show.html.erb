@@ -7,8 +7,15 @@
     <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpeg", class: "rounded-circle" %>
     <h3><%= @user.name %></h3>
       <% if @user.id == current_user.id %>
-    <p><i class="fas fa-edit"></i><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+        <%#= render "follows/btn", user: @user %>
+      <p><i class="fas fa-edit"></i><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
       <% end %>
+      <p>
+        follows
+        <%= link_to @user.followings.count, user_followings_path(@user) %>
+        followers
+        <%= link_to @user.followers.count, user_followers_path(@user) %>
+      </p>
   </div>
 </div>
 
