@@ -1,6 +1,7 @@
 <div class="container">
   <div style="text-align: center;">
+    <% @all_ranks.each do |photo_image| %>
     <%= render 'photo_images/each', photo_images: @photo_images %>
-    <!--@all_ranks.each do |photo_image|-->
+    <% end %>
   </div>
 </div>

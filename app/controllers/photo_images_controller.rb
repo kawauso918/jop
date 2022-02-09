@@ -19,7 +19,7 @@ class PhotoImagesController < ApplicationController
 
   def index
     @photo_images = PhotoImage.page(params[:page]).reverse_order
-    #@all_ranks = PhotoImage.find(Favorite.group(:photo_image_id).order('count(photo_image_id) desc').limit(3).pluck(:photo_image_id))
+    @all_ranks = PhotoImage.find(Favorite.group(:photo_image_id).order('count(photo_image_id) desc').limit(3).pluck(:photo_image_id))
   end
 
   def show

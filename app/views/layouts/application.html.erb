@@ -22,27 +22,33 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav ml-auto">
                 <% if user_signed_in? %>
-                    <i class="fas fa-users"></i>
                   <li>
+                    <i class="fas fa-users"></i>
                     <%= link_to "ユーザー一覧", users_path, class: "navbar-brand" %>
                   </li>
                   <li>
+                    <i class="fas fa-photo-video"></i>
                     <%= link_to "投稿一覧", photo_images_path, class: "navbar-brand" %>
                   </li>
                   <li>
+                    <i class="fas fa-camera"></i>
                     <%= link_to '投稿フォーム',  new_photo_image_path, class: "navbar-brand" %>
                   </li>
                   <li>
+                    <i class="fas fa-user-alt"></i>
                     <%= link_to "プロフィール", user_path(current_user.id), class: "navbar-brand" %>
                   </li>
                   <li>
+                    <i class="fas fa-running"></i>
                     <%= link_to "ログアウト", destroy_user_session_path, class: "navbar-brand", method: :delete %>
                   </li>
                 <% else %>
                   <li>
+                    <i class="fas fa-sign-in-alt"></i>
                     <%= link_to "新規登録", new_user_registration_path, class: "navbar-brand" %>
                   </li>
                   <li>
+                    <i class="fas fa-sign-in-alt"></i>
                     <%= link_to "ログイン", new_user_session_path, class: "navbar-brand" %>
                   </li>
                 <% end %>
