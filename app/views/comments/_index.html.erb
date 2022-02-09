@@ -2,7 +2,7 @@
   <% comment_user = comment.user %>
   <div style= "text-align: center;">
     <p>
-      <%= attachment_image_tag @photo_image.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg", class: "rounded-circle" %>
+      <%= attachment_image_tag comment.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg", class: "rounded-circle" %>
       <%= comment.user.name %>
       <%= comment.created_at.strftime('%Y/%m/%d') %>
       <%= comment.comment %>

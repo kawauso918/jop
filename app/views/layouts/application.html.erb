@@ -13,7 +13,7 @@
   <body>
 
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
           <%= link_to "jop", root_path, class: "navbar-brand" %>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,14 +61,17 @@
     <%= yield %>
     </main>
 
-     <footer>
-      <div class='container mt-5'>
-        <div class='row'>
-          <div class='mx-auto'>
-            <div class="social">
-              <i class="fas fa-camera-retro"></i><p>写真で繋がるSNS</p>
-            </div>
-          </div>
+     <footer class="fixed-bottom bg-white">
+      <div class='container'>
+        <div class="text-center">
+          <!--<div class='mx-auto'>-->
+            <!--<div class="social">-->
+              <div>
+                <i class="fas fa-camera-retro"></i>
+              </div>
+              <small>写真で繋がるSNS</small>
+            <!--</div>-->
+          <!--</div>-->
         </div>
       </div>
     </footer>

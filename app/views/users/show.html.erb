@@ -21,6 +21,6 @@
 
 <div class="container">
   <div style="text-align: center;">
-    <%= render 'photo_images/each', photo_images: @photo_images %>
+    <%= render partial: 'photo_images/each', locals: {photo_images: @photo_images, all_ranks: @all_ranks} %>
   </div>
 </div>

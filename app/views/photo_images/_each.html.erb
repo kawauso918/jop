@@ -17,11 +17,13 @@
           </p>
           <p class="card-text">説明：<%= photo_image.caption %></p>
             <!--idを用いる（1ビュー内で同名のidは存在してはいけないため）-->
-          <div id="photo_image_<%= photo_image.id %>">
-          <span><i class="fas fa-user"></i> <%= photo_image.user.name %> | </span>
-            <%= render "favorites/favorite-btn", photo_image: photo_image %>
-          <!--クラス名を一意性があるものにする-->
-          <span class="comments-count"> <i class="far fa-comment-alt"></i><%= photo_image.comments.count %></span>
+          <div>
+            <span><i class="fas fa-user"></i> <%= photo_image.user.name %> | </span>
+            <span id="photo_image_<%= photo_image.id %>">
+              <%= render "favorites/favorite-btn", photo_image: photo_image %>
+            </span>
+            <!--クラス名を一意性があるものにする-->
+            <span class="comments-count"> <i class="far fa-comment-alt"></i><%= photo_image.comments.count %></span>
           </div>
         </div>
       </div>
@@ -29,4 +31,21 @@
   </div>
   <% end %>
   <%= paginate photo_images %>
+</div>
+
+
+
+<div class="row ranking">
+  <% all_ranks.each do |rank| %>
+    <div class="col-md-4 mb-3">
+      <div class="card shadow-lg ranking-no">
+        <%= attachment_image_tag rank, :image, class: "card-img-top img-fluid" %>
+        <p class="card-title">
+          <%= link_to photo_image_path(rank.id), class:"text-dark" do %>
+            <strong><i class="fas fa-file-signature"></i><span> <%= rank.name %></span></strong>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  <% end %>
 </div>

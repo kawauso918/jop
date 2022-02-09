@@ -14,10 +14,8 @@
 
   <div style= "text-align: center;">
     <!--idを用いる（1ビュー内で同名のidは存在してはいけないため）-->
-    <p id="photo_image_<%= @photo_image.id %>">
-
-      <!--クラス名を一意性があるものにする-->
-    <p class="favorite-btn"><%= render "favorites/favorite-btn", photo_image: @photo_image %></p>
+    <!--クラス名を一意性があるものにする-->
+    <p id="photo_image_<%= @photo_image.id %>" class="favorite-btn"><%= render "favorites/favorite-btn", photo_image: @photo_image %></p>
     <p class="comments-count">コメント数: <%= @photo_image.comments.count %></p>
   </div>
   <div class="comments">

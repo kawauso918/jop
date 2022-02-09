@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+$enable-rounded: false;
+
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
@@ -24,10 +27,43 @@
   color: #6c6b6b;
 }
 
+body {
+  padding-top: 80px;
+  padding-bottom: 60px;
+}
+
 .main-visual {
   width: 100%; /* 横幅いっぱい */
   height: 300px; /* 高さ300px */
   background-image: url(img/duy-pham-Cecb0_8Hx-o-unsplash.jpg);
   background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
   background-position: center; /* 背景画像を中央に配置 */
+}
+
+.ranking {
+  counter-reset: rank;
+}
+
+.ranking .ranking-no {
+  position: relative;
+}
+
+.ranking .ranking-no:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.ranking .ranking-no::before { /* ラベルと順位のスタイル */
+  counter-increment: rank;
+  content: counter(rank) " 位";
+  position: absolute;
+  padding: 8px 14px;
+  font-size: calc(10px + 1vw);
+  color: #fff; /* 文字色 */
+  background: rgba(0,0,0,0.5); /* 背景色 */
+}
+
+.ranking img { /* 画像のスタイル */
+  height: 150px;
+  width: auto;
+  object-fit: cover;
 }

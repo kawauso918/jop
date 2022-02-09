@@ -1,7 +1,5 @@
 <div class="container">
   <div style="text-align: center;">
-    <% @all_ranks.each do |photo_image| %>
-    <%= render 'photo_images/each', photo_images: @photo_images %>
-    <% end %>
+    <%= render partial: 'photo_images/each', locals: {photo_images: @photo_images, all_ranks: @all_ranks} %>
   </div>
 </div>
