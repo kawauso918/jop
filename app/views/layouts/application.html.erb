@@ -22,6 +22,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav ml-auto">
                 <% if user_signed_in? %>
+                    <i class="fas fa-users"></i>
                   <li>
                     <%= link_to "ユーザー一覧", users_path, class: "navbar-brand" %>
                   </li>

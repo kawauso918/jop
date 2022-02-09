@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
   before_action :authenticate_user!
+  before_action :set_q, only: [:index, :search]
 
   def index
      @users = User.all
@@ -34,6 +35,10 @@ class UsersController < ApplicationController
       @users = user.follower_user.page(params[:page]).per(3).reverse_order
   end
 
+  def search
+      @results = @q.result
+  end
+
   private
 
   def user_params
@@ -45,6 +50,10 @@ class UsersController < ApplicationController
     unless @user == current_user
       redirect_to user_path(current_user)
     end
+  end
+
+  def set_q
+    @q = User.ransack(params[:q])
   end
 
 end

@@ -10,5 +10,8 @@ Rails.application.routes.draw do
     resource :follows, only: [:create, :destroy]
     get 'followings' => 'follows#followings', as: 'followings'
     get 'follower' => 'follows#followers', as: 'followers'
+    collection do
+      get 'search'
+    end
   end
 end
