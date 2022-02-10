@@ -14,4 +14,10 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+
+  get 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
+  post 'contacts/back', to: 'contacts#back', as: 'back'
+  get 'done', to: 'contacts#done', as: 'done'
+  resources :contacts, only: [:new, :create]
+
 end

@@ -1,0 +1,28 @@
+<div class="container">
+  <div style="text-align: center;">
+
+      <p>名前：<%= @contact.name %></p>
+      <p>e-mail：<%= @contact.email %></p>
+      <p>電話番号：<%= @contact.phone_number %></p>
+      <p>メッセージ：<%= @contact.message %></p>
+    <%= form_with model: @contact do |f| %>
+      <%= f.hidden_field :name, value: @contact.name  %>
+      <%= f.hidden_field :email, value: @contact.email  %>
+      <%= f.hidden_field :phone_number, value: @contact.phone_number  %>
+      <%= f.hidden_field :subject, value: @contact.subject  %>
+      <%= f.hidden_field :message, value: @contact.message  %>
+      <div><%= f.submit '送信' %></div>
+    <% end %>
+  </div>
+</div>
+
+
+
+<%#= form_with model: @contact, url: back_path do |f| %>
+  <%#= f.hidden_field :name %>
+  <%#= f.hidden_field :email %>
+  <%#= f.hidden_field :phone_number %>
+  <%#= f.hidden_field :subject %>
+  <%#= f.hidden_field :message %>
+  <%#= f.submit '入力画面に戻る' %>
+<%# end %>
