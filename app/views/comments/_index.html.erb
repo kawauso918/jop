@@ -5,7 +5,7 @@
       <%= attachment_image_tag comment.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg", class: "rounded-circle" %>
       <%= comment.user.name %>
       <%= comment.created_at.strftime('%Y/%m/%d') %>
-      <%= comment.comment %>
+      <span class="comment"><%= comment.comment %></span>
       <% if comment.user == current_user %>
         <%= link_to "削除", photo_image_comment_path(comment.photo_image, comment), class: "btn btn-sm btn-danger", method: :delete, remote: true %>
       <% end %>

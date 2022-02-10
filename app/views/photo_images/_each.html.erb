@@ -16,9 +16,9 @@
             <% end %>
           </p>
           <p class="card-text">説明：<%= photo_image.caption %></p>
-            <!--idを用いる（1ビュー内で同名のidは存在してはいけないため）-->
           <div>
             <span><i class="fas fa-user"></i> <%= photo_image.user.name %> | </span>
+            <!--idを用いる（1ビュー内で同名のidは存在してはいけないため）-->
             <span id="photo_image_<%= photo_image.id %>">
               <%= render "favorites/favorite-btn", photo_image: photo_image %>
             </span>
