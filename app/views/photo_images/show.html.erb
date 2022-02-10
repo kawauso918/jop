@@ -1,16 +1,21 @@
 <div class="container">
+  <div style= "text-align: left;">
+    <p>
+      <%= attachment_image_tag @photo_image.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class:"mt-3 rounded-circle" %>
+      <%= @photo_image.user.name %>
+    </p>
+  </div>
   <div style= "text-align: center;">
     <%= attachment_image_tag @photo_image, :image, class:"card-img-top"; %>
-        <p>写真名：<%= @photo_image.name %></p>
-        <p>説明：<%= @photo_image.caption %></p>
-        <p>ユーザーネーム：<%= @photo_image.user.name %></p>
-        <p>投稿日時：<%= @photo_image.created_at.strftime('%Y/%m/%d') %></p>
-        <% if @photo_image.user == current_user %>
-          <%= link_to "編集", edit_photo_image_path(@photo_image), class: "btn btn-sm btn-success" %>
-          <%= link_to "削除", photo_image_path(@photo_image), class: "btn btn-sm btn-danger", method: :delete %>
-        <% end %>
-      </div>
-    </div>
+    <p>写真名：<%= @photo_image.name %></p>
+    <p>説明：<%= @photo_image.caption %></p>
+    <p>投稿日時：<%= @photo_image.created_at.strftime('%Y/%m/%d') %></p>
+    <% if @photo_image.user == current_user %>
+        <%= link_to "編集", edit_photo_image_path(@photo_image), class: "btn btn-sm btn-success" %>
+        <%= link_to "削除", photo_image_path(@photo_image), class: "btn btn-sm btn-danger", method: :delete %>
+    <% end %>
+  </div>
+
 
   <div style= "text-align: center;">
     <!--idを用いる（1ビュー内で同名のidは存在してはいけないため）-->
