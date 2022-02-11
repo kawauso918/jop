@@ -1,6 +1,6 @@
 <% photo_image.comments.each do |comment| %>
   <% comment_user = comment.user %>
-  <div style= "text-align: center;">
+  <div style= "text-align: left;">
     <p>
       <%= attachment_image_tag comment.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg", class: "rounded-circle" %>
       <%= comment.user.name %>
