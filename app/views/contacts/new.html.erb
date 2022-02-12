@@ -16,10 +16,10 @@
         <%= f.text_field :phone_number, autofocus: true, class: 'form-control' %>
       </div>
 
-      <!--<div class="form-group">-->
-        <%#= f.label :subject, 'お問い合わせ件名*' %>-->
-        <%#= f.select :subject, Contact.subject.keys.map {|k| [I18n.t("enums.contact.subject.#{k}"), k]} %>
-      <!--</div>-->
+      <div class="form-group">
+        <%= f.label :subject, 'お問い合わせ件名*' %>
+       <%= f.select :subject, options_for_select_from_enum(Contact, :subject) %>
+      </div>
 
       <div class="form-group">
         <%= f.label :message, 'メッセージ*' %>

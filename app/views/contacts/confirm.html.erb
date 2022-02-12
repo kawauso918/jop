@@ -1,27 +1,21 @@
 <div class="container">
   <div style="text-align: left;">
-      <p>名前：<%= @contact.name %></p>
-      <p>e-mail：<%= @contact.email %></p>
-      <p>電話番号：<%= @contact.phone_number %></p>
-      <p>メッセージ：<%= @contact.message %></p>
-    <%= form_with model: @contact do |f| %>
-      <%= f.hidden_field :name, value: @contact.name  %>
-      <%= f.hidden_field :email, value: @contact.email  %>
-      <%= f.hidden_field :phone_number, value: @contact.phone_number  %>
-      <%= f.hidden_field :subject, value: @contact.subject  %>
-      <%= f.hidden_field :message, value: @contact.message  %>
-      <div><%= f.submit '送信' %></div>
-    <% end %>
+    <div class="card border-dark mb-3" style="max-width: 18rem;">
+      <div class="card-body text-dark">
+        <p>名前：<%= @contact.name %></p>
+        <p>e-mail：<%= @contact.email %></p>
+        <p>電話番号：<%= @contact.phone_number %></p>
+        <p>問い合わせ件名：<%= @contact.subject_i18n %></p>
+        <p>メッセージ：<%= @contact.message %></p>
+      <%= form_with model: @contact do |f| %>
+        <%= f.hidden_field :name, value: @contact.name  %>
+        <%= f.hidden_field :email, value: @contact.email  %>
+        <%= f.hidden_field :phone_number, value: @contact.phone_number  %>
+        <%= f.hidden_field :subject, value: @contact.subject  %>
+        <%= f.hidden_field :message, value: @contact.message  %>
+        <div><%= f.submit '送信', class: "btn btn-lg btn-block btn-info mt-4" %></div>
+      <% end %>
+      </div>
+    </div>
   </div>
 </div>
-
-
-
-<%#= form_with model: @contact, url: back_path do |f| %>
-  <%#= f.hidden_field :name %>
-  <%#= f.hidden_field :email %>
-  <%#= f.hidden_field :phone_number %>
-  <%#= f.hidden_field :subject %>
-  <%#= f.hidden_field :message %>
-  <%#= f.submit '入力画面に戻る' %>
-<%# end %>
