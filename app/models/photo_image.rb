@@ -6,6 +6,7 @@ class PhotoImage < ApplicationRecord
 
   validates :name, presence: true
   validates :image, presence: true
+  validates :caption, presence: true, length: {maximum: 200}
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?

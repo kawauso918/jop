@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'TOPページのテスト' do
-  let!(:photo_image) { create(:photo_image, name:'hoge', caption:'body') }
+  let!(:top) { create(:top, name:'hoge', caption:'body') }
   describe 'トップ画面(top_path)のテスト' do
     before do
       visit top_path
@@ -89,7 +89,7 @@ describe "ユーザー一覧のテスト" do
 
   describe "投稿新規画面(new_photo_path)のテスト" do
     before do
-      visit new_photo_path
+      visit new_photo_image_path
     end
     context '表示の確認' do
       it 'new_photo_image_pathが"/photo_images/new"であるか' do
@@ -117,7 +117,6 @@ describe "ユーザー一覧のテスト" do
       it '投稿されたものが表示されているか' do
         expect(page).to have_link photo_image.name
         expect(page).to have_content photo_image.caption
-        expect(page).to have_content photo_image.favorites.count
         expect(page).to have_content photo_image.comments.count
       end
     end
@@ -140,9 +139,8 @@ describe "ユーザー一覧のテスト" do
       it '投稿した説明が存在しているか' do
         expect(page).to have_content '説明'
       end
-      it '投稿したいいね数が存在しているか' do
-        expect(page).to have_content 'いいね'
-      end
+
+    end
       it '投稿したコメント数が存在しているか' do
         expect(page).to have_content 'コメント数'
       end
@@ -153,7 +151,6 @@ describe "ユーザー一覧のテスト" do
         expect(page).to have_button 'コメント'
       end
 
-    end
     context 'リンクの遷移先の確認' do
       it '編集の遷移先は編集画面か' do
         edit_link = find_all('a')[3]
@@ -173,7 +170,7 @@ describe "ユーザー一覧のテスト" do
       visit edit_photo_image_path(photo_image)
     end
     context '表示の確認' do
-      it '編集前のタイトルと本文がフォームに表示(セット)されている' do
+      it '編集前の名前と説明がフォームに表示(セット)されている' do
         expect(page).to have_field 'photo_image[name]', with: photo_image.name
         expect(page).to have_field 'photo_image[caption]', with: photo_image.caption
       end
@@ -222,3 +219,38 @@ describe "ユーザー一覧のテスト" do
       end
     end
   end
+
+  RSpec.describe "favorites", type: :system do
+    before do
+      @photo_image = FactoryBot.create(:photo_image)
+      @photo_image = FactoryBot.create(:photo_image)
+    end
+
+    describe '#create,#destroy' do
+      it 'ユーザーが他の投稿をいいね、いいね解除できる' do
+        # ログインする
+        sign_in(@definition.user)
+
+        # 投稿詳細ページに遷移する
+        visit  photo_image_path(@photo_image.id)
+
+        # フォームに情報を入力する
+        fill_in 'answer_answer', with: @photo_image
+
+        # 回答を送信すると、Answerモデルのカウントが1上がることを確認する
+        expect{
+          find('input[name="commit"]').click
+        }.to change { PhotoImage.count }.by(1)
+
+        # いいねをするボタンを押す
+        find('#favorite-btn').click
+        expect(page).to have_selector '#liking-btn'
+        expect(@photo_image.favorites.count).to eq(1)
+
+        # いいねを解除する
+        find('#favorite-btn').click
+        expect(page).to have_selector '#nolike-btn'
+        expect(@photo_image.favorites.count).to eq(0)
+        end
+     end
+end
