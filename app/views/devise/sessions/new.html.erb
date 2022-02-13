@@ -1,17 +1,17 @@
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
-     <h2>Log in</h2>
+      <h2><i class="fas fa-sign-in-alt"></i>ログイン</h2>
 
         <%= form_with model: @user, url: user_session_path, local: true do |f| %>
 
         <div class="field">
-          <%= f.label :name %><br />
+          <%= f.label :名前 %><br />
           <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
         </div>
 
         <div class="field">
-          <%= f.label :password %><br />
+          <%= f.label :パスワード %><br />
           <%= f.password_field :password, autocomplete: "current-password" %>
         </div>
 
@@ -23,7 +23,7 @@
         <% end %>
 
         <div class="actions">
-          <%= f.submit "Log in" %>
+          <%= f.submit "ログイン", class: "btn btn-sm btn-success" %>
         </div>
       <% end %>
 
