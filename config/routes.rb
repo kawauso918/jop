@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'homes#top'
   resources :photo_images, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
-      resource  :favorites, only: [:create, :destroy]
-      resources :comments, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
+    resources :notifications, only: :index
   end
 
   resources :users, only: [:index, :show, :edit, :update] do

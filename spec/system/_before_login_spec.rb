@@ -117,7 +117,7 @@ describe '[STEP1] ユーザログイン前のテスト' do
       it '新規登録後のリダイレクト先が、新規登録できたユーザの詳細画面になっている' do
         click_button '新規登録'
         # expect(current_path).to eq '/users' + User.last.id.to_s
-        expect(current_path).to eq  "/users/1"
+        expect(current_path).to eq "/users/1"
       end
     end
   end
@@ -207,8 +207,13 @@ describe '[STEP1] ユーザログイン前のテスト' do
         photo_image_link = find_all('a')[4].native.inner_text
         expect(photo_image_link).to match(/プロフィール/)
       end
-      it 'ログアウトリンクが表示される: 左上から6番目のリンクが「ログアウト」である' do
-        logout_link = find_all('a')[5].native.inner_text
+      it '問い合わせリンクが表示される: 左上から6番目のリンクが「問い合わせ」である' do
+        contact_link = find_all('a')[5].native.inner_text
+        expect(contact_link).to match(/問い合わせ/)
+      end
+
+      it 'ログアウトリンクが表示される: 左上から7番目のリンクが「ログアウト」である' do
+        logout_link = find_all('a')[6].native.inner_text
         expect(logout_link).to match(/ログアウト/)
       end
     end
@@ -229,10 +234,10 @@ describe '[STEP1] ユーザログイン前のテスト' do
 
     context 'ログアウト機能のテスト' do
       it '正しくログアウトできている: ログアウト後のリダイレクト先においてトップページ画面へのリンクが存在する' do
-        expect(page).to have_link '', href: '/homes/top'
+        expect(page).to have_link '', href: '/users/1'
       end
       it 'ログアウト後のリダイレクト先が、トップになっている' do
-        expect(current_path).to eq  "/users/1"
+        expect(current_path).to eq "/users/1"
       end
     end
   end

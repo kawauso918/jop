@@ -4,14 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, presence: true, uniqueness:true, length: {minimum: 2, maximum:20 }
+  validates :name, presence: true, uniqueness: true, length: { minimum: 2, maximum: 20 }
   attachment :profile_image
 
   has_many :photo_images, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
-   # 自分がフォローされる（被フォロー）側の関係性
+  # 自分がフォローされる（被フォロー）側の関係性
   has_many :reverse_of_follows, class_name: "Follow", foreign_key: "followed_id", dependent: :destroy
   # 自分がフォローする（与フォロー）側の関係性
   has_many :follows, class_name: "Follow", foreign_key: "follower_id", dependent: :destroy
@@ -19,6 +19,11 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_follows, source: :follower
   # 与フォロー関係を通じて参照→自分がフォローしている人
   has_many :followings, through: :follows, source: :followed
+
+  # active_notifications：自分からの通知
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+  # passive_notifications：相手からの通知
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
   def follow(user_id)
     follows.create(followed_id: user_id)

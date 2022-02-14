@@ -1,5 +1,4 @@
 class ContactsController < ApplicationController
-
   def new
     @contact = Contact.new
   end
@@ -20,7 +19,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-       ContactMailer.send_mail(@contact).deliver_now
+      ContactMailer.send_mail(@contact).deliver_now
       redirect_to done_path
     else
       render :new

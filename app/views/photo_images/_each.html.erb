@@ -2,7 +2,7 @@
   <% photo_images.each do |photo_image| %>
   <div class="card w-50 mx-auto mt-4 shadow-lg">
     <%= link_to photo_image_path(photo_image.id) do %>
-          <%= attachment_image_tag photo_image, :image, class:"card-img-top"; %>
+      <%= attachment_image_tag photo_image, :image, class:"card-img-top"; %>
     <% end %>
     <div class="card-body">
       <div class="row">
@@ -15,7 +15,7 @@
               <strong><i class="fas fa-file-signature"></i><span> <%= photo_image.name %></span></strong>
             <% end %>
           </p>
-          <p class="card-text">説明：<%= photo_image.caption %></p>
+          <p class="card-text"><strong> 説明：<%= photo_image.caption %></strong></p>
           <div>
             <span><i class="fas fa-user"></i> <%= photo_image.user.name %> | </span>
             <!--idを用いる（1ビュー内で同名のidは存在してはいけないため）-->

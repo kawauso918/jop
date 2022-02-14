@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :set_q, only: [:index, :search]
 
   def index
-     @users = User.all
+    @users = User.all
   end
 
   def show
@@ -27,17 +27,17 @@ class UsersController < ApplicationController
   end
 
   def follows
-      user = User.find(params[:id])
-      @users = user.following_user.page(params[:page]).per(3).reverse_order
+    user = User.find(params[:id])
+    @users = user.following_user.page(params[:page]).per(3).reverse_order
   end
 
   def followers
-      user = User.find(params[:id])
-      @users = user.follower_user.page(params[:page]).per(3).reverse_order
+    user = User.find(params[:id])
+    @users = user.follower_user.page(params[:page]).per(3).reverse_order
   end
 
   def search
-      @results = @q.result
+    @results = @q.result
   end
 
   private
@@ -56,5 +56,4 @@ class UsersController < ApplicationController
   def set_q
     @q = User.ransack(params[:q])
   end
-
 end

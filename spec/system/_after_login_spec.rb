@@ -36,9 +36,9 @@ describe '[STEP2] ユーザログイン後のテスト' do
         is_expected.to eq '/photo_images/new'
       end
       it 'プロフィールを押すと、自分のユーザ詳細画面に遷移する' do
-        _link = find_all('a')[4].native.inner_text
-        profile_link = profile_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
-        click_link profile_link
+        user_link = find_all('a')[4].native.inner_text
+        user_link = user_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
+        click_link user_link
         is_expected.to eq '/users/' + user.id.to_s
       end
     end
@@ -53,10 +53,6 @@ describe '[STEP2] ユーザログイン後のテスト' do
       it 'URLが正しい' do
         expect(current_path).to eq '/photo_images'
       end
-      it '自分と他人の画像のリンク先が正しい' do
-        expect(page).to have_link '', href: user_path(photo_image.user)
-        expect(page).to have_link '', href: user_path(other_photo_image.user)
-      end
       it '自分の投稿と他人の投稿した写真の名前のリンク先がそれぞれ正しい' do
         expect(page).to have_link photo_image.name, href: photo_image_path(photo_image)
         expect(page).to have_link other_photo_image.name, href: photo_image_path(other_photo_image)
@@ -66,13 +62,13 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_content other_photo_image.caption
       end
     end
-
   end
 
   describe "投稿新規画面(new_photo_image_path)のテスト" do
     before do
       visit new_photo_image_path
     end
+
     context '表示の確認' do
       it 'new_photo_image_pathが"/photo_images/new"であるか' do
         expect(current_path).to eq('/photo_images/new')
@@ -81,6 +77,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_button '投稿'
       end
     end
+
     context '投稿成功のテスト' do
       before do
         fill_in 'photo_image[name]', with: Faker::Lorem.characters(number: 5)
@@ -88,6 +85,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
         find('input[type="file"]').click
         attach_file "photo_image[image]", "spec/fixtures/karina-vorozheeva-rW-I87aPY5Y-unsplash.jpg"
       end
+
       it '自分の新しい投稿が正しく保存される' do
         expect { click_button '投稿' }.to change(user.photo_images, :count).by(1)
       end
@@ -98,20 +96,20 @@ describe '[STEP2] ユーザログイン後のテスト' do
     end
   end
 
-
   describe '自分の投稿詳細画面のテスト' do
     before do
       visit photo_image_path(photo_image)
     end
+
     context '表示内容の確認' do
       it 'URLが正しい' do
         expect(current_path).to eq '/photo_images/1'
       end
-     it '投稿した名前が存在しているか' do
-        expect(page).to have_content 'name'
+      it '投稿した名前が存在しているか' do
+        expect(page).to have_content '写真名'
       end
       it '投稿した説明が存在しているか' do
-        expect(page).to have_content 'caption'
+        expect(page).to have_content '説明'
       end
       it '投稿の編集リンクが表示される' do
         expect(page).to have_link '編集', href: edit_photo_image_path(photo_image)
@@ -120,16 +118,20 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).to have_link '削除', href: photo_image_path(photo_image)
       end
     end
+
     context '編集リンクのテスト' do
       it '編集画面に遷移する' do
         click_link '編集'
         # expect(current_path).to eq '/photo_images' + photo_image.id.to_s + '/edit'
-        expect(current_path).to eq  "/photo_images/1/edit"
-
-
+        expect(current_path).to eq "/photo_images/1/edit"
       end
     end
+
     context '削除リンクのテスト' do
+      before do
+        click_link '削除'
+      end
+
       it 'application.html.erbにjavascript_include_tagを含んでいる' do
         is_exist = 0
         open("app/views/layouts/application.html.erb").each do |line|
@@ -141,9 +143,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
         end
         expect(is_exist).to eq(1)
       end
-      before do
-        click_link '削除'
-      end
+
       it '正しく削除される' do
         expect(PhotoImage.where(id: photo_image.id).count).to eq 0
       end
@@ -161,9 +161,9 @@ describe '[STEP2] ユーザログイン後のテスト' do
     context '表示の確認' do
       it 'URLが正しい' do
         # expect(current_path).to eq '/photo_images' + photo_image.id.to_s + '/edit'
-        expect(current_path).to eq  "/photo_images/1/edit"
+        expect(current_path).to eq "/photo_images/1/edit"
       end
-       it '編集前の名前と説明がフォームに表示(セット)されている' do
+      it '編集前の名前と説明がフォームに表示(セット)されている' do
         expect(page).to have_field 'photo_image[name]', with: photo_image.name
         expect(page).to have_field 'photo_image[caption]', with: photo_image.caption
       end
@@ -188,7 +188,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(photo_image.reload.caption).not_to eq @photo_image_old_caption
       end
       it 'リダイレクト先が、更新した投稿の詳細画面になっている' do
-         expect(current_path).to eq '/photo_images/1'
+        expect(current_path).to eq '/photo_images/1'
       end
     end
   end
@@ -237,18 +237,19 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect(page).not_to have_content other_photo_image.caption
       end
       it 'プロフィール編集リンクが表示される' do
-	       edit_link = find_all('a')[0]
-	       expect(edit_link.native.inner_text).to match(/edit/i)
-			 end
+        edit_link = find_all('a')[7]
+        expect(edit_link.native.inner_text).to match "プロフィール編集"
+      end
     end
-     context 'リンクの遷移先の確認' do
-	     it 'Editの遷移先は編集画面か' do
-	       edit_link = find_all('a')[0]
-	       edit_link.click
-	       #expect(current_path).to eq('/users/' + photo_image.id.to_s + '/edit')
-	       expect(current_path).to eq  "/"
-	     end
-	   end
+
+    context 'リンクの遷移先の確認' do
+      it 'Editの遷移先は編集画面か' do
+        edit_link = find_all('a')[0]
+        edit_link.click
+        # expect(current_path).to eq('/users/' + photo_image.id.to_s + '/edit')
+        expect(current_path).to eq "/"
+      end
+    end
   end
 
   describe '自分のユーザ情報編集画面のテスト' do

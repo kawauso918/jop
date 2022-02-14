@@ -27,6 +27,7 @@
     <div class="comments">
       <%= render 'comments/index', photo_image: @photo_image %>
     </div>
+    <!--コメント欄-->
     <div style= "text-align: left;">
       <%= form_with(model:[@photo_image, @comment]) do |f| %>
         <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>

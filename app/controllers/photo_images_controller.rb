@@ -14,7 +14,6 @@ class PhotoImagesController < ApplicationController
     else
       render :new
     end
-
   end
 
   def index
@@ -52,9 +51,9 @@ class PhotoImagesController < ApplicationController
   end
 
   def ensure_correct_user
-      @photo_image = PhotoImage.find(params[:id])
-      unless @photo_image.user == current_user
-        redirect_to photo_images_path
-      end
+    @photo_image = PhotoImage.find(params[:id])
+    unless @photo_image.user == current_user
+      redirect_to photo_images_path
+    end
   end
 end

@@ -39,12 +39,16 @@
                     <%= link_to "プロフィール", user_path(current_user.id), class: "navbar-brand" %>
                   </li>
                   <li>
-                    <i class="fas fa-running"></i>
-                    <%= link_to "ログアウト", destroy_user_session_path, class: "navbar-brand", method: :delete %>
+                    <i class="fas fa-envelope"></i>
+                    <%= link_to "問い合わせ",  new_contact_path, class: "navbar-brand" %>
                   </li>
                   <li>
-                    <i class="fas fa-question"></i>
-                    <%= link_to "問い合わせ",  new_contact_path, class: "navbar-brand" %>
+                    <i class="fas fa-bell"></i>
+                    <%#= link_to "お知らせ", photo_image_notifications_path, class: "navbar-brand" %>
+                  </li>
+                  <li>
+                    <i class="fas fa-running"></i>
+                    <%= link_to "ログアウト", destroy_user_session_path, class: "navbar-brand", method: :delete %>
                   </li>
                 <% else %>
                   <li>

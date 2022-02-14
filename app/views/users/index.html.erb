@@ -14,7 +14,7 @@
         <% @users.each do |user| %>
           <tr>
             <td><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", class: "rounded-circle" %></td>
-            <td><%= user.name %></td>
+            <td><strong><%= user.name %></strong></td>
             <td><%= render "follows/btn", user: user %></td>
             <td><%= link_to 'Show', user_path(user), class: "btn btn-sm btn-success" %></td>
           </tr>
