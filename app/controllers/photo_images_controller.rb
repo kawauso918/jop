@@ -34,8 +34,11 @@ class PhotoImagesController < ApplicationController
   def update
     @photo_image = PhotoImage.find(params[:id])
     @photo_images = PhotoImage.all
-    @photo_image.update(photo_image_params)
-    redirect_to photo_image_path
+    if @photo_image.update(photo_image_params)
+      redirect_to photo_image_path
+    else
+      render :edit
+    end
   end
 
   def destroy

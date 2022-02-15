@@ -4,7 +4,6 @@ class FavoritesController < ApplicationController
   def create
     @photo_image = PhotoImage.find(params[:photo_image_id])
     favorite = @photo_image.favorites.new(user_id: current_user.id)
-    favorite.save
      # 通知機能について
     # favorite = current_user.active_favorite.new(favorite_id:params[:favorite_id])
     # @favorite = Favorite.find(params[:favorite_id])
@@ -13,7 +12,7 @@ class FavoritesController < ApplicationController
       # format.html {redirect_to request.referrer}
       # format.js
     # end
-
+    favorite.save
     # app/views/favorites/create.js.erbを参照する
   end
 
