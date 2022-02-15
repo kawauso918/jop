@@ -5,8 +5,10 @@ class CommentsController < ApplicationController
     @comment.photo_image_id = @photo_image.id
     @comment.user_id = current_user.id
     unless @comment.save
+      # app/views/comments/create.js.erbを参照する
       render 'error'
     end
+    # 通知機能について
     @photo_image.create_notification_by(current_user)
   end
 
@@ -14,6 +16,7 @@ class CommentsController < ApplicationController
     @photo_image = PhotoImage.find(params[:photo_image_id])
     comment = @photo_image.comments.find(params[:id])
     comment.destroy
+     # app/views/comments/destroy.js.erbを参照する
   end
 
   private

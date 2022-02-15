@@ -45,9 +45,9 @@
                   <li>
                     <i class="fas fa-bell"></i>
                     <% if unchecked_notifications.any? %>
-                     <%= link_to "お知らせ",notifications_path, class: "navbar-brand" %>
+                     <%= link_to "お知らせ",notifications_path, class: "navbar-brand", style: "color:tomato;" %>
                     <% else %>
-                     <%= link_to "お知らせ",notifications_path, class: "navbar-brand" %>
+                     <%= link_to "お知らせ",notifications_path,  class: "navbar-brand"  %>
                     <% end %>
                   </li>
                   <li>
