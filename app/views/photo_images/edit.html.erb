@@ -1,5 +1,5 @@
 <% if @photo_image.errors.any? %>
-  <div id="error_explanation">
+  <div class="error_explanation">
     <h2><%= @photo_image.errors.count %>件のエラーが発生しました</h2>
     <ul>
       <% @photo_image.errors.full_messages.each do |message| %>

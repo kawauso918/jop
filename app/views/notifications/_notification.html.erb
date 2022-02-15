@@ -1,13 +1,19 @@
-<% visiter= notification.visiter %>
-<% photo_image=notification.favorite %>
+<% visitor = notification.visitor %>
+<% photo_image = notification.photo_image %>
 
-<div class="user-view clearfix ">
-  <%= link_to user_path(notification.visiter) do %>
-    <%= image_tag notification.visiter.image[:small].url, class:"user-thumb", style:"width: 60px;"%>
-  <% end %>
-  <%= notification_form(notification) %><span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span>
-  <br>
-  <% if !@comment.nil? %>
-    <p class="moderate-font"><%= @comment %></p>
-  <% end %>
-</div>
+<ul>
+  <li>
+    <%= attachment_image_tag photo_image.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class:"mt-3 rounded-circle" %>
+    <%= link_to user_path(visitor) do %>
+    <strong>
+      <%=visitor.name %>
+    <% end %>
+    </strong>さんが
+    <strong>
+      <%= link_to photo_image_path(notification.photo_image_id) do %>
+        <%= photo_image.name.truncate(20)%>
+      <% end %>
+    </strong>に通知しました。
+    <%= " (#{time_ago_in_words(notification.created_at)} 前)" %>
+  </li>
+</ul>

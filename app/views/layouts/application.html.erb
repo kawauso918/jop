@@ -44,7 +44,11 @@
                   </li>
                   <li>
                     <i class="fas fa-bell"></i>
-                    <%#= link_to "お知らせ", photo_image_notifications_path, class: "navbar-brand" %>
+                    <% if unchecked_notifications.any? %>
+                     <%= link_to "お知らせ",notifications_path, class: "navbar-brand" %>
+                    <% else %>
+                     <%= link_to "お知らせ",notifications_path, class: "navbar-brand" %>
+                    <% end %>
                   </li>
                   <li>
                     <i class="fas fa-running"></i>

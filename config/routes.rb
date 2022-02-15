@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resources :photo_images, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
     resource :favorites, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
-    resources :notifications, only: :index
   end
 
   resources :users, only: [:index, :show, :edit, :update] do
@@ -20,5 +19,7 @@ Rails.application.routes.draw do
   post 'contacts/back', to: 'contacts#back', as: 'back'
   get 'done', to: 'contacts#done', as: 'done'
   resources :contacts, only: [:new, :create]
+
+  resources :notifications, only: [:index, :destroy]
 
 end

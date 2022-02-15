@@ -1,5 +1,5 @@
 <% if @contact.errors.any? %>
-  <div id="error_explanation">
+  <div class="error_explanation">
     <h2><%= @contact.errors.count %>件のエラーが発生しました</h2>
     <ul>
       <% @contact.errors.full_messages.each do |message| %>

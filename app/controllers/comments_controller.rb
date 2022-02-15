@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
     unless @comment.save
       render 'error'
     end
+    @photo_image.create_notification_by(current_user)
   end
 
   def destroy
