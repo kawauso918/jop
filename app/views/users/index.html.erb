@@ -23,5 +23,20 @@
     </table>
   </div>
 </div>
+<!--トップに戻る画像-->
+<span id="back">
+  <a href="#">
+    <%= image_tag asset_path("arrow.png") %>
+  </a>
+</span>
 
-
+<script>
+  $(function() {
+    $('#back a').on('click',function(event){
+      $('body, html').animate({
+        scrollTop:0
+      }, 800);
+      event.preventDefault();
+    });
+  });
+</script>

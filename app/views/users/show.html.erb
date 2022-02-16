@@ -1,6 +1,12 @@
-<div class="main-visual">
+<div id="container">
+  <div id="theTarget">
+    <div class="image1"></div>
+    <div class="image2"></div>
+    <div class="image3"></div>
+    <div class="image4"></div>
+    <div class="image5"></div>
+  </div>
 </div>
-
 <div class="container">
   <div style="text-align: center;">
     <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: "jpg", fallback: "no_image.jpg", class: "rounded-circle" %>
@@ -23,3 +29,30 @@
     <%= render partial: 'photo_images/each', locals: {photo_images: @photo_images, all_ranks: @all_ranks} %>
   </div>
 </div>
+
+<script>
+  $(document).on('turbolinks:load', function() {
+    $("#theTarget").skippr({
+      // スライドショーの変化 ("fade" or "slide")
+      transition : 'slide',
+      // 変化に係る時間(ミリ秒)
+      speed : 1000,
+      // easingの種類
+      easing : 'easeOutQuart',
+      // ナビゲーションの形("block" or "bubble")
+      navType : 'block',
+      // 子要素の種類('div' or 'img')
+      childrenElementType : 'div',
+      // ナビゲーション矢印の表示(trueで表示)
+      arrows : true,
+      // スライドショーの自動再生(falseで自動再生なし)
+      autoPlay : true,
+      // 自動再生時のスライド切替間隔(ミリ秒)
+      autoPlayDuration : 3000,
+      // キーボードの矢印キーによるスライド送りの設定(trueで有効)
+      keyboardOnAlways : true,
+      // 一枚目のスライド表示時に戻る矢印を表示するかどうか(falseで非表示)
+      hidePrevious : false
+    });
+  });
+</script>
