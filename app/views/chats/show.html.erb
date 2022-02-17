@@ -1,6 +1,6 @@
 <div class="container">
     <div style="text-align: center;">
-            <h2><i class="fas fa-users"></i>CHAT<%= @user.name %></h2>
+            <h2><i class="fas fa-users"></i><%= @user.name %></h2>
 
             <table class="message table">
               <thead>
@@ -16,7 +16,9 @@
                     <th>
                       <p style="text-align: left;">
                         <%= attachment_image_tag chat.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class:"mt-3 rounded-circle" %>
-                        <%= chat.message %>
+                        <span class="chat">
+                          <%= chat.message %>
+                        </span>
                       </p>
                     </th>
                     <th></th>
@@ -27,7 +29,9 @@
                     <th>
                       <p style="text-align: right;">
                         <%= attachment_image_tag chat.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class:"mt-3 rounded-circle" %>
-                        <%= chat.message %>
+                        <span class="chat">
+                          <%= chat.message %>
+                        </span>
                       </p>
                     </th>
                   </tr>

@@ -39,10 +39,6 @@
                     <%= link_to "プロフィール", user_path(current_user.id), class: "navbar-brand" %>
                   </li>
                   <li>
-                    <i class="fas fa-envelope"></i>
-                    <%= link_to "問い合わせ",  new_contact_path, class: "navbar-brand" %>
-                  </li>
-                  <li>
                     <i class="fas fa-bell"></i>
                     <% if unchecked_notifications.any? %>
                      <%= link_to "お知らせ",notifications_path, class: "navbar-brand", style: "color:tomato;" %>
@@ -50,10 +46,22 @@
                      <%= link_to "お知らせ",notifications_path,  class: "navbar-brand"  %>
                     <% end %>
                   </li>
-                  <li>
-                    <i class="fas fa-running"></i>
-                    <%= link_to "ログアウト", destroy_user_session_path, class: "navbar-brand", method: :delete %>
-                  </li>
+                  <!--ハンバーガーメニュー-->
+                  <div id="sp-menu">
+                    <h2>MENU</h2>
+                      <ul>
+                        <li><a href="#">MENU3</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i><%= link_to "問い合わせ",  new_contact_path, class: "navbar-brand" %></a></li>
+                        <li><a href="#"><i class="fas fa-running"></i><%= link_to "ログアウト", destroy_user_session_path, class: "navbar-brand", method: :delete %></a></li>
+                      </ul>
+                  </div>
+                  <div id="hm-icon">
+                    <a class="menu-trigger" href="#">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </a>
+                  </div>
                 <% else %>
                   <li>
                     <i class="fas fa-sign-in-alt"></i>
@@ -90,3 +98,13 @@
     </footer>
   </body>
 </html>
+<!--ハンバーガーメニュー-->
+<script>
+  $(function() {
+    $('.menu-trigger').on('click', function(event) {
+      $(this).toggleClass('active');
+      $('#sp-menu').fadeToggle();
+      event.preventDefault();
+    });
+  });
+</script>
