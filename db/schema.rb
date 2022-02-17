@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_15_073833) do
+ActiveRecord::Schema.define(version: 2022_02_17_021202) do
+
+  create_table "chats", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text "comment"
@@ -65,6 +73,18 @@ ActiveRecord::Schema.define(version: 2022_02_15_073833) do
     t.string "image_id"
     t.text "caption"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_rooms", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

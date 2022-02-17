@@ -1,0 +1,45 @@
+<div class="container">
+    <div style="text-align: center;">
+            <h2><i class="fas fa-users"></i>CHAT<%= @user.name %></h2>
+
+            <table class="message table">
+              <thead>
+                <tr>
+                  <th style="text-align: left; font-size: 20px;"><i class="fas fa-user"></i><%= current_user.name %></th>
+                  <th style="text-align: right; font-size: 20px;"><i class="fas fa-user"></i><%= @user.name %></th>
+                </tr>
+              </thead>
+              <% @chats.each do |chat| %>
+                <% if chat.user_id == current_user.id %>
+                <tbody>
+                  <tr>
+                    <th>
+                      <p style="text-align: left;">
+                        <%= attachment_image_tag chat.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class:"mt-3 rounded-circle" %>
+                        <%= chat.message %>
+                      </p>
+                    </th>
+                    <th></th>
+                  </tr>
+                <% else %>
+                  <tr>
+                    <th></th>
+                    <th>
+                      <p style="text-align: right;">
+                        <%= attachment_image_tag chat.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class:"mt-3 rounded-circle" %>
+                        <%= chat.message %>
+                      </p>
+                    </th>
+                  </tr>
+                </tbody>
+                <% end %>
+              <% end %>
+            </table>
+
+            <%= form_with model: @chat, remote: true do |f| %>
+              <%= f.text_field :message %>
+              <%= f.hidden_field :room_id %>
+              <%= f.submit "送信", class:"btn btn-sm btn-success chat-btn" %>
+            <% end %>
+        </div>
+    </div>

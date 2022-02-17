@@ -25,6 +25,9 @@ class User < ApplicationRecord
   # passive_notifications：相手からの通知
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
+  has_many :user_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
+
   def follow(user_id)
     follows.create(followed_id: user_id)
   end
