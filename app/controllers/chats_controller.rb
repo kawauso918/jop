@@ -3,7 +3,7 @@ class ChatsController < ApplicationController
     @user = User.find(params[:id])
     rooms = current_user.user_rooms.pluck(:room_id)
     user_rooms = UserRoom.find_by(user_id: @user.id, room_id: rooms)
-    # user_roomでルームを取得できなかった場合の処理  
+    # user_roomでルームを取得できなかった場合の処理
       if user_rooms.nil?
        @room = Room.new
        @room.save
@@ -12,7 +12,7 @@ class ChatsController < ApplicationController
       else
        @room = user_rooms.room
       end
-  
+
     @chats = @room.chats
     @chat = Chat.new(room_id: @room.id)
   end
