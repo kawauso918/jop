@@ -71,19 +71,19 @@ body {
 
 .comment {
   display: inline-block;
-  padding: 5px 8px;
+  padding: 5px 20px;
   background-color: #acabab;
-  border-radius: 3px;
+  border-radius: 10px;
   color: #fff;
-  font-size: 11px;
+  font-size: 20px;
 }
 .chat {
   display: inline-block;
-  padding: 5px 8px;
+  padding: 5px 20px;
   background-color: #acabab;
-  border-radius: 3px;
+  border-radius: 10px;
   color: #fff;
-  font-size: 11px;
+  font-size: 20px;
 }
 
 .error_explanation {
@@ -389,4 +389,12 @@ body {
 /* Buttons' focus effect */
 .signup input[type="submit"]:focus {
   border-color: #05a;
+}
+
+table {
+  border-collapse: collapse;
+  border: solid 2px  #e9e9e9;/*表全体を線で囲う*/
+}
+table th, table td {
+  border: dashed 1px  #e9e9e9;
 }

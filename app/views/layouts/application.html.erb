@@ -51,7 +51,7 @@
               <div id="sp-menu">
                 <h2>MENU</h2>
                   <ul>
-                    <li><a href="#">MENU3</a></li>
+                    <li><a href="#"><%= link_to "天気予報",  home_about_path, class: "navbar-brand" %></a></li>
                     <li><a href="#"><i class="fas fa-envelope"></i><%= link_to "問い合わせ",  new_contact_path, class: "navbar-brand" %></a></li>
                     <li><a href="#"><i class="fas fa-running"></i><%= link_to "ログアウト", destroy_user_session_path, class: "navbar-brand", method: :delete %></a></li>
                   </ul>
