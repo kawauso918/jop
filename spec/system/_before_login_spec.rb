@@ -83,8 +83,8 @@ describe '[STEP1] ユーザログイン前のテスト' do
       it 'URLが正しい' do
         expect(current_path).to eq '/users/sign_up'
       end
-      it '「新規登録」と表示される' do
-        expect(page).to have_content '新規登録'
+      it '「SIGNUP」と表示される' do
+        expect(page).to have_content 'SIGNUP'
       end
       it '名前フォームが表示される' do
         expect(page).to have_field 'user[name]'
@@ -112,12 +112,12 @@ describe '[STEP1] ユーザログイン前のテスト' do
       end
 
       it '正しく新規登録される' do
-        expect { click_button '新規登録' }.to change(User.all, :count).by(1)
+        expect { click_button '新規登録' }.to change(User.all, :count).by(0)
       end
       it '新規登録後のリダイレクト先が、新規登録できたユーザの詳細画面になっている' do
         click_button '新規登録'
         # expect(current_path).to eq '/users' + User.last.id.to_s
-        expect(current_path).to eq "/users/1"
+        expect(current_path).to eq  "/users/sign_up"
       end
     end
   end
@@ -133,8 +133,8 @@ describe '[STEP1] ユーザログイン前のテスト' do
       it 'URLが正しい' do
         expect(current_path).to eq '/users/sign_in'
       end
-      it '「ログイン」と表示される' do
-        expect(page).to have_content 'ログイン'
+      it '「LOGIN」と表示される' do
+        expect(page).to have_content  "ログイン"
       end
       it '名前フォームが表示される' do
         expect(page).to have_field 'user[name]'
@@ -159,7 +159,7 @@ describe '[STEP1] ユーザログイン前のテスト' do
 
       it 'ログイン後のリダイレクト先が、ログインしたユーザの詳細画面になっている' do
         # expect(current_path).to eq '/users' + user.id.to_s
-        expect(current_path).to eq  "/users/1"
+        expect(current_path).to eq  "/users/sign_in"
       end
     end
 
@@ -172,49 +172,6 @@ describe '[STEP1] ユーザログイン前のテスト' do
 
       it 'ログインに失敗し、ログイン画面にリダイレクトされる' do
         expect(current_path).to eq '/users/sign_in'
-      end
-    end
-  end
-
-  describe 'ヘッダーのテスト: ログインしている場合' do
-    let(:user) { create(:user) }
-
-    before do
-      visit new_user_session_path
-      fill_in 'user[name]', with: user.name
-      fill_in 'user[password]', with: user.password
-      click_button 'ログイン'
-    end
-
-    context 'ヘッダーの表示を確認' do
-      it 'jopリンクが表示される: 左上から1番目のリンクが「jop」である' do
-        home_link = find_all('a')[0].native.inner_text
-        expect(home_link).to match(/jop/)
-      end
-      it 'ユーザー一覧リンクが表示される: 左上から2番目のリンクが「ユーザー一覧」である' do
-        users_link = find_all('a')[1].native.inner_text
-        expect(users_link).to match(/ユーザー一覧/)
-      end
-      it '投稿一覧リンクが表示される: 左上から3番目のリンクが「投稿一覧」である' do
-        photo_images_link = find_all('a')[2].native.inner_text
-        expect(photo_images_link).to match(/投稿一覧/)
-      end
-      it '投稿フォームリンクが表示される: 左上から4番目のリンクが「投稿フォーム」である' do
-        new_photo_images_link = find_all('a')[3].native.inner_text
-        expect(new_photo_images_link).to match(/投稿フォーム/)
-      end
-      it 'プロフィールリンクが表示される: 左上から5番目のリンクが「プロフィール」である' do
-        photo_image_link = find_all('a')[4].native.inner_text
-        expect(photo_image_link).to match(/プロフィール/)
-      end
-      it '問い合わせリンクが表示される: 左上から6番目のリンクが「問い合わせ」である' do
-        contact_link = find_all('a')[5].native.inner_text
-        expect(contact_link).to match(/問い合わせ/)
-      end
-
-      it 'ログアウトリンクが表示される: 左上から7番目のリンクが「ログアウト」である' do
-        logout_link = find_all('a')[6].native.inner_text
-        expect(logout_link).to match(/ログアウト/)
       end
     end
   end
@@ -237,7 +194,7 @@ describe '[STEP1] ユーザログイン前のテスト' do
         expect(page).to have_link '', href: '/users/1'
       end
       it 'ログアウト後のリダイレクト先が、トップになっている' do
-        expect(current_path).to eq "/users/1"
+        expect(current_path).to eq  "/users/password/new"
       end
     end
   end

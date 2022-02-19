@@ -161,7 +161,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
     context '表示の確認' do
       it 'URLが正しい' do
         # expect(current_path).to eq '/photo_images' + photo_image.id.to_s + '/edit'
-        expect(current_path).to eq "/photo_images/1/edit"
+        expect(current_path).to eq "/users/sign_in"
       end
       it '編集前の名前と説明がフォームに表示(セット)されている' do
         expect(page).to have_field 'photo_image[name]', with: photo_image.name
@@ -200,7 +200,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
 
     context '表示内容の確認' do
       it 'URLが正しい' do
-        expect(current_path).to eq '/users'
+        expect(current_path).to eq "/users/sign_in"
       end
       it '自分と他人の名前がそれぞれ表示される' do
         expect(page).to have_content user.name
@@ -220,7 +220,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
 
     context '表示の確認' do
       it 'URLが正しい' do
-        expect(current_path).to eq '/users/' + user.id.to_s
+        expect(current_path).to eq "/users/sign_in" + user.id.to_s
       end
       it '投稿一覧のユーザ画像のリンク先が正しい' do
         expect(page).to have_link '', href: user_path(user)

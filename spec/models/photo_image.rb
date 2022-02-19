@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'photo_imageモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
-    subject { book.valid? }
+    subject { photo_image.valid? }
 
     let(:user) { create(:user) }
     let!(:photo_image) { build(:photo_image, user_id: user.id) }

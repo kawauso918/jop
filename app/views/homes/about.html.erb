@@ -7,7 +7,7 @@
 </div>
 
 <script>
-   $(function() {
+  $(function() {
     var API_KEY = '6e41d0442d48b9a2abfbb14da94479b4'
     var city = 'Tokyo';
     var url = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + ',jp&units=metric&APPID=' + API_KEY;
@@ -46,6 +46,6 @@
     '<div class="weather-temp">' + Math.round(data.list[i].main.temp) + '℃</div>' +
   '</div>';
   return html
-}
+  }
 
 </script>
