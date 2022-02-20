@@ -96,7 +96,7 @@ p {
 font-size: 140%;
 }
 .card-title {
-  text-align: left;
+  text-align: center;
 }
 .card-text {
   text-align: left;
@@ -439,4 +439,26 @@ table {
 }
 table th, table td {
   border: dashed 1px  #e9e9e9;
+}
+
+.map-center {
+  display: flex;
+  justify-content: center;
+}
+
+.card-width {
+    width: 50%;
+}
+@media screen and (max-width: 600px) {
+    .card-width {
+        width: 80%;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+    .card-width {
+        width: 80%;
+    }
+
 }

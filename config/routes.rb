@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'maps/index'
   devise_for :users
   root to: 'homes#top'
   get '/home/about' => 'homes#about'
@@ -27,5 +28,9 @@ Rails.application.routes.draw do
   resources :chats, only: [:create]
   # カレンダー機能
   resources :seminars, only: [:index]
+  #地図表示
+  get 'maps/index'
+  root to: 'maps#index'
+  resources :maps, only: [:index]
 
 end
