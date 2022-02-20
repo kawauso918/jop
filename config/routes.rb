@@ -15,15 +15,17 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-
+  # 問い合わせ機能
   get 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
   post 'contacts/back', to: 'contacts#back', as: 'back'
   get 'done', to: 'contacts#done', as: 'done'
   resources :contacts, only: [:new, :create]
-
+  # 通知機能
   resources :notifications, only: [:index, :destroy]
-
+  # チャット機能
   get 'chat/:id', to: 'chats#show', as: 'chat'
   resources :chats, only: [:create]
+  # カレンダー機能
+  resources :seminars, only: [:index]
 
 end

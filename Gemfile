@@ -84,3 +84,5 @@ group :production do
 end
 gem 'rails-i18n'
 gem 'enum_help'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
