@@ -1,6 +1,6 @@
 <div class="container">
   <div style= "text-align: left;">
-    <p>
+    <p class= "photo_image">
       <%= attachment_image_tag @photo_image.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class:"mt-3 rounded-circle" %>
       <%= @photo_image.user.name %><br>
       <%= @photo_image.created_at.strftime('%Y/%m/%d') %><br>

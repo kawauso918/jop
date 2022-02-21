@@ -42,7 +42,9 @@ body {
   background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
   background-position: center; /* 背景画像を中央に配置 */
 }
-
+.photo_image {
+  font-size: 20px;
+}
 .ranking {
   counter-reset: rank;
 }
@@ -92,14 +94,18 @@ body {
   font-size: 20px;
   border-radius: 2px;
 }
-p {
-font-size: 140%;
-}
+
 .card-title {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
 }
 .card-text {
   text-align: left;
+  font-size: 15px;
+}
+.card-width {
+    width: 50%;
 }
 .chat {
   display: inline-block;
@@ -446,9 +452,7 @@ table th, table td {
   justify-content: center;
 }
 
-.card-width {
-    width: 50%;
-}
+
 @media screen and (max-width: 600px) {
     .card-width {
         width: 80%;
