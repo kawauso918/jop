@@ -16,7 +16,7 @@
             <% end %>
           </p>
           <p class="card-text"><strong><i class="fas fa-feather-alt"></i><%= photo_image.caption %></strong></p>
-          <div>
+          <div class="card-count">
             <span><i class="fas fa-user"></i> <%= photo_image.user.name %> | </span>
             <!--idを用いる（1ビュー内で同名のidは存在してはいけないため）-->
             <span id="photo_image_<%= photo_image.id %>">

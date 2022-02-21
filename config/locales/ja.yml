@@ -5,3 +5,18 @@ ja:
         other: 'その他のお問い合わせ'
         work: '仕事について'
         othermethod: '方法について'
+  activerecord:
+    attributes:
+      user:
+        name: '名前'
+        email: 'メールアドレス'
+        password: 'パスワード'
+      photo_image:
+        name: '写真名'
+        caption: '説明'
+        image: '写真'
+      contact:
+        name: '名前'
+        email: 'メールアドレス'
+        phone_number: '電話番号'
+        message: 'メッセージ'

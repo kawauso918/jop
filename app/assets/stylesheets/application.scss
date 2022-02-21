@@ -33,6 +33,8 @@ $enable-rounded: false;
 body {
   padding-top: 80px;
   padding-bottom: 60px;
+  background: #e9e9e9;
+  font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
 }
 
 .main-visual {
@@ -96,16 +98,18 @@ body {
 }
 
 .card-title {
-  display: flex;
-  justify-content: center;
+  text-align: left;
   font-size: 30px;
 }
 .card-text {
   text-align: left;
-  font-size: 15px;
+  font-size: 20px;
 }
 .card-width {
-    width: 50%;
+  width: 50%;
+}
+.card-count{
+  text-align: left;
 }
 .chat {
   display: inline-block;
@@ -114,6 +118,7 @@ body {
   border-radius: 10px;
   color: #fff;
   font-size: 20px;
+  height: 40px;
 }
 .weather-report {
   padding: 0.5em 1em;
@@ -139,6 +144,7 @@ body {
   border: 2px solid #f5c6cb;
   padding: 7px 7px 0;
   margin-bottom: 20px;
+  margin-left: 20px;
   background-color: #f0f0f0;
 h2 {
     text-align: left;
@@ -151,8 +157,8 @@ h2 {
   }
 
   ul li {
-    font-size: 12px;
-    list-style: square;
+    font-size: 15px;
+    list-style: inside;
   }
 }
 #notice {
@@ -266,10 +272,7 @@ h2 {
 // ログイン画面
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
-body {
-  background: #e9e9e9;
-  font-family: 'Open Sans', sans-serif;
-}
+
 
 .login {
   width: 400px;
