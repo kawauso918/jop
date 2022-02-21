@@ -453,6 +453,9 @@ table th, table td {
     .card-width {
         width: 80%;
     }
+    .btn {
+      display: inline-table;
+    }
 
 }
 
@@ -461,4 +464,8 @@ table th, table td {
         width: 80%;
     }
 
+}
+.map-btn {
+  display: flex;
+  justify-content: center
 }
