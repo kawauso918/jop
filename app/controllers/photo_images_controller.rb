@@ -1,6 +1,7 @@
 class PhotoImagesController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
+  impressionist :actions=> [:show]
 
   def new
     @photo_image = PhotoImage.new
@@ -25,6 +26,7 @@ class PhotoImagesController < ApplicationController
   def show
     @photo_image = PhotoImage.find(params[:id])
     @comment = Comment.new
+    impressionist(@photo_image, nil, unique: [:session_hash.to_s])
   end
 
   def edit

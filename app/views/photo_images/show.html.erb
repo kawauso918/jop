@@ -19,6 +19,7 @@
           <!--クラス名を一意性があるものにする-->
           <td id="photo_image_<%= @photo_image.id %>" class="favorite-btn"><%= render "favorites/favorite-btn", photo_image: @photo_image %></td>
           <td class="comments-count"><i class="far fa-comment-alt"></i>コメント数: <%= @photo_image.comments.count %></td>
+          <td class="impressionist_count"><i class="fas fa-eye"></i>閲覧数: <%= @photo_image.impressionist_count %></td>
         </tr>
       </tbody>
     </table>

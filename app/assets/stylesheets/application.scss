@@ -90,6 +90,12 @@ body {
   border-radius: 2px;
 
 }
+.impressionist_count {
+  text-align: center;
+  width: 20%;
+  font-size: 20px;
+  border-radius: 2px;
+}
 .favorite-btn {
   text-align: center;
   width: 20%;
@@ -162,7 +168,8 @@ h2 {
   }
 }
 #notice {
-  color: green;
+  color: #119b30;
+  font-size: 20px;
 }
 // 画像スライドショー
 .image1 {
@@ -459,6 +466,7 @@ table {
     }
     .btn {
       display: inline-table;
+      width: max-content;
     }
 
 }

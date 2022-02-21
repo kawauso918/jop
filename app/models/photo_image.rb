@@ -4,6 +4,7 @@ class PhotoImage < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :notifications, dependent: :destroy
   attachment :image
+  is_impressionable
 
   validates :name, presence: true
   validates :image, presence: true
