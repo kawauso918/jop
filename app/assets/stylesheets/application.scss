@@ -468,7 +468,18 @@ table {
       display: inline-table;
       width: max-content;
     }
-
+    .menu-trigger {
+      position: relative;
+      width: 5px;
+      height: 24px;
+    }
+    .navbar-toggler {
+    padding: 0.25rem 1.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 2px transparent;
+    }
 }
 
 @media screen and (max-width: 900px) {
