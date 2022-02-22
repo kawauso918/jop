@@ -461,6 +461,10 @@ table {
 
 
 @media screen and (max-width: 600px) {
+    .card-title {
+    text-align: center;
+    font-size: 30px;
+    }
     .card-width {
         width: 80%;
     }
@@ -480,6 +484,7 @@ table {
     background-color: transparent;
     border: 2px transparent;
     }
+
 }
 
 @media screen and (max-width: 900px) {
