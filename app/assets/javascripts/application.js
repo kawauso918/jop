@@ -64,11 +64,32 @@ function displayCalendar(){
         }
     });
 }
+
+
 $(document).on('turbolinks:load', function () {
-  displayCalendar();
+    displayCalendar();
+
+    // フォームの要素を取得
+    let messageForm = $('#chat_message')
+    // 送信ボタンを取得
+    let chatButton = $('.chat-btn')
+
+    // ページ読み込み時はボタンを押せなくする
+    chatButton.prop('disabled', true)
+
+     messageForm.keyup(function() {
+        if ($(this).val === '') {
+            chatButton.prop('disabled', true)
+        } else {
+            chatButton.prop('disabled', false)
+        }
+     })
 });
 
 $(document).on('turbolinks:before-cache', function(){
   clearCalendar();
   displayCalendar();
 });
+
+
+

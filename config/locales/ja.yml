@@ -20,3 +20,5 @@ ja:
         email: 'メールアドレス'
         phone_number: '電話番号'
         message: 'メッセージ'
+      comment:
+        comment: 'コメント'

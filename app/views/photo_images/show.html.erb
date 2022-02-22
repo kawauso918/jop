@@ -26,6 +26,9 @@
     <div class="comments">
       <%= render 'comments/index', photo_image: @photo_image %>
     </div>
+    <div id="comments_error">
+    <%= render 'layouts/errors', model: @comment %>
+    </div>
     <!--コメント欄-->
     <div style= "text-align: left;">
       <%= form_with(model:[@photo_image, @comment]) do |f| %>
