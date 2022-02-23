@@ -1,4 +1,5 @@
-/*.messageを部分更新。appendメソッドで要素を追加 */
+<!--/*.messageを部分更新。appendメソッドで要素を追加 */-->
 $('.message').append("<%=j render 'chat_content', chat: @chat %>");
-/*チャット投稿後、フォームの値に前回の投稿内容が残らないようにする */
+<!--/*チャット投稿後、フォームの値に前回の投稿内容が残らないようにする */-->
+$('#chat-form').html("<%=j render 'form', chat: @chat %>");
 $('input[type=text]').val("");

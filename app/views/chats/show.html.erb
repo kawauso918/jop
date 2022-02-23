@@ -40,10 +40,12 @@
               <% end %>
             </table>
 
-            <%= form_with model: @chat, remote: true do |f| %>
-              <%= f.text_field :message, :placeholder => "入力してください" %>
-              <%= f.hidden_field :room_id %>
-              <%= f.submit "送信", class:"btn btn-sm btn-success chat-btn" %>
-            <% end %>
+            <div id="chat-form">
+              <%= form_with model: @chat, remote: true do |f| %>
+                <%= f.text_field :message, :placeholder => "入力してください" %>
+                <%= f.hidden_field :room_id %>
+                <%= f.submit "送信", class:"btn btn-sm btn-success chat-btn", disabled: true %>
+              <% end %>
+            </div>
         </div>
     </div>
