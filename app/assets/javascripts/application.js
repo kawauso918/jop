@@ -71,6 +71,7 @@ $(document).on('turbolinks:load', function () {
 
     // フォームの要素を取得
     let messageForm = $('#chat_message')
+
     // 送信ボタンを取得
     let chatButton = $('.chat-btn')
 
