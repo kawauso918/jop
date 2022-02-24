@@ -11,9 +11,8 @@
   <div style="text-align: center;">
     <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: "jpg", fallback: "no_image.jpg", class: "rounded-circle" %>
     <h3><b><%= @user.name %></b></h3>
-      <% if @user.id == current_user.id %>
-        <%#= render "follows/btn", user: @user %>
-      <p><i class="fas fa-edit"></i><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+      <% if @user.id == current_user.id && @user.name != "guestuser" %>
+        <p><i class="fas fa-edit"></i><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
       <% end %>
       <p>
         follows

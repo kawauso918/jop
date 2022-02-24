@@ -484,9 +484,12 @@ table {
 
 @media screen and (max-width: 600px) {
     .card-title {
-    text-align: left;
-    font-size: 30px;
-    margin-left: 15px;
+      text-align: left;
+      font-size: 30px;
+      margin-left: 15px;
+    }
+    .card-text {
+      margin-left: 15px;
     }
     .card-width {
         width: 80%;
@@ -494,6 +497,7 @@ table {
     .btn {
       display: inline-table;
       width: max-content;
+      margin: 0 auto;
     }
     .menu-trigger {
       position: relative;
@@ -501,13 +505,38 @@ table {
       height: 24px;
     }
     .navbar-toggler {
-    padding: 0.25rem 1.75rem;
-    font-size: 1.25rem;
-    line-height: 1;
-    background-color: transparent;
-    border: 2px transparent;
+      padding: 0.25rem 1.75rem;
+      font-size: 1.25rem;
+      line-height: 1;
+      background-color: transparent;
+      border: 2px transparent;
     }
-
+    .impressionist_count {
+      text-align: center;
+      width: 20%;
+      font-size: 18px;
+      border-radius: 2px;
+    }
+    .comments-count {
+      text-align: center;
+      width: 20%;
+      font-size: 15px;
+      border-radius: 2px;
+    }
+    .favorite-btn {
+      text-align: center;
+      width: 20%;
+      font-size: 15px;
+      border-radius: 2px;
+    }
+    .comment {
+      display: inline-block;
+      padding: 5px 20px;
+      background-color: #8d8787;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 15px;
+    }
 }
 
 @media screen and (max-width: 900px) {
