@@ -15,6 +15,16 @@ class PhotoImage < ApplicationRecord
   end
 
   def create_notification_by(current_user)
+        notification = current_user.active_notifications.new(photo_image_id: id, visited_id: user_id, action: "favorite")
+        if notification.visitor_id == notification.visited_id
+        notification.checked = true
+        end
+          notification.save
+        if notification.valid?
+        end
+  end
+
+  def create_notification_by(current_user)
     notification = current_user.active_notifications.new(photo_image_id: id, visited_id: user_id, action: 'comment')
     # 自分には通知がこないようにする
     if notification.visitor_id == notification.visited_id
