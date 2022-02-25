@@ -38,11 +38,11 @@ body {
 }
 
 .main-visual {
-  width: 100%; /* 横幅いっぱい */
-  height: 300px; /* 高さ300px */
+  width: 100%;
+  height: 300px;
   background-image: url(img/duy-pham-Cecb0_8Hx-o-unsplash.jpg);
-  background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
-  background-position: center; /* 背景画像を中央に配置 */
+  background-size: cover;
+  background-position: center;
 }
 .photo_image {
   font-size: 20px;
@@ -65,8 +65,8 @@ body {
   position: absolute;
   padding: 8px 14px;
   font-size: calc(10px + 1vw);
-  color: #fff; /* 文字色 */
-  background: rgba(0,0,0,0.5); /* 背景色 */
+  color: #fff;
+  background: rgba(0,0,0,0.5);
 }
 
 .ranking img { /* 画像のスタイル */
@@ -210,10 +210,10 @@ h2 {
   background-image: url(image5.jpg);
 }
 #container{
-  width: 100%; /* 横幅いっぱい */
-  height: 500px; /* 高さ300px */
-  background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
-  background-position: center; /* 背景画像を中央に配置 */
+  width: 100%;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
 }
 #back {
   position: fixed;
@@ -224,9 +224,7 @@ h2 {
   width: 50px;
 }
 
-/* ---------------------------- */
 /* ---- ハンバーガーアイコン ---- */
-/* ---------------------------- */
 #hm-icon {
   position: fixed;
   right: 20px;
@@ -274,9 +272,7 @@ h2 {
   transform: translateY(-20px) rotate(45deg);
   background-color: #fff;
 }
-/* ------------------------ */
 /* ------ spメニュー ------ */
-/* ------------------------ */
 #sp-menu {
   position: fixed;
   top: 0;
@@ -309,14 +305,12 @@ h2 {
   font-size: 16px;
 }
 
-/* Reset top and bottom margins from certain elements */
 .login-header,
 .login p {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-/* The triangle form is achieved by a CSS hack */
 .login-triangle {
   width: 0;
   margin-right: auto;
@@ -340,7 +334,6 @@ h2 {
   padding: 12px;
 }
 
-/* Every row inside .login-container is defined with p tags */
 .login p {
   padding: 12px;
 }
@@ -364,7 +357,6 @@ h2 {
   color: #555;
 }
 
-/* Text fields' focus effect */
 .login input[type="name"]:focus,
 .login input[type="password"]:focus {
   border-color: #888;
@@ -381,7 +373,6 @@ h2 {
   background: #17c;
 }
 
-/* Buttons' focus effect */
 .login input[type="submit"]:focus {
   border-color: #05a;
 }
@@ -392,14 +383,12 @@ h2 {
   font-size: 16px;
 }
 
-/* Reset top and bottom margins from certain elements */
 .signup-header,
 .signup p {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-/* The triangle form is achieved by a CSS hack */
 .signup-triangle {
   width: 0;
   margin-right: auto;
@@ -423,7 +412,6 @@ h2 {
   padding: 12px;
 }
 
-/* Every row inside .login-container is defined with p tags */
 .signup p {
   padding: 12px;
 }
@@ -448,7 +436,6 @@ h2 {
   color: #555;
 }
 
-/* Text fields' focus effect */
 .signup input[type="name"]:focus,
 .signup input[type="email"]:focus,
 .signup input[type="password"]:focus {
@@ -466,7 +453,6 @@ h2 {
   background: #17c;
 }
 
-/* Buttons' focus effect */
 .signup input[type="submit"]:focus {
   border-color: #05a;
 }
@@ -557,12 +543,12 @@ table {
 
 .notification {
   color: #404040;
-  border-left: solid 6px #1fa67a;/*左側の線*/
-  border-bottom: solid 2px #dadada;/*下に灰色線*/
+  border-left: solid 6px #1fa67a;
+  border-bottom: solid 2px #dadada;
   background: whitesmoke;
-  margin-bottom: 5px;/*下のバーとの余白*/
+  margin-bottom: 5px;
   line-height: 1.5;
   padding: 0.5em;
-  list-style-type: none!important;/*ポチ消す*/
+  list-style-type: none!important;
   font-weight: bold;
 }
