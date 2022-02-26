@@ -2,3 +2,10 @@
   display: flex;
   justify-content: center;
 }
+.map-btn {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+}
