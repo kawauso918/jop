@@ -74,13 +74,12 @@ body {
   width: auto;
   object-fit: cover;
 }
-
 .comment {
   display: inline-block;
   padding: 5px 20px;
-  background-color: #8d8787;
+  background-color: white;
   border-radius: 10px;
-  color: #fff;
+  color: darkslategray;
   font-size: 20px;
 }
 .comments-count {
@@ -114,17 +113,17 @@ body {
 .card-width {
   width: 50%;
 }
-.card-count{
+.card-count {
   text-align: left;
 }
 .chat {
-  display: inline-block;
-  padding: 5px 20px;
-  background-color: #8d8787;
-  border-radius: 10px;
-  color: #fff;
-  font-size: 20px;
-  height: 40px;
+    display: inline-block;
+    padding: 5px 20px;
+    background-color: dodgerblue;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    height: 40px;
 }
 .weather-report {
   padding: 0.5em 1em;
@@ -469,6 +468,11 @@ table {
 
 
 @media screen and (max-width: 600px) {
+    .main-visual {
+      width: 100%;
+      background-position: top;
+      background-size: contain;
+    }
     .card-title {
       text-align: left;
       font-size: 30px;
@@ -518,10 +522,10 @@ table {
     .comment {
       display: inline-block;
       padding: 5px 20px;
-      background-color: #8d8787;
+      background-color: white;
       border-radius: 10px;
-      color: #fff;
-      font-size: 15px;
+      color: darkslategray;
+      font-size: 20px;
     }
 }
 
