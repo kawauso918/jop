@@ -44,105 +44,7 @@ body {
   background-size: cover;
   background-position: center;
 }
-.photo_image {
-  font-size: 20px;
-}
-.ranking {
-  counter-reset: rank;
-}
 
-.ranking .ranking-no {
-  position: relative;
-}
-
-.ranking .ranking-no:not(:last-child) {
-  margin-bottom: 10px;
-}
-
-.ranking .ranking-no::before { /* ラベルと順位のスタイル */
-  counter-increment: rank;
-  content: counter(rank) " 位";
-  position: absolute;
-  padding: 8px 14px;
-  font-size: calc(10px + 1vw);
-  color: #fff;
-  background: rgba(0,0,0,0.5);
-}
-
-.ranking img { /* 画像のスタイル */
-  height: 150px;
-  width: auto;
-  object-fit: cover;
-}
-.comment {
-  display: inline-block;
-  padding: 5px 20px;
-  background-color: white;
-  border-radius: 10px;
-  color: darkslategray;
-  font-size: 20px;
-}
-.comments-count {
-  text-align: center;
-  width: 20%;
-  font-size: 20px;
-  border-radius: 2px;
-
-}
-.impressionist_count {
-  text-align: center;
-  width: 20%;
-  font-size: 20px;
-  border-radius: 2px;
-}
-.favorite-btn {
-  text-align: center;
-  width: 20%;
-  font-size: 20px;
-  border-radius: 2px;
-}
-
-.card-title {
-  text-align: left;
-  font-size: 30px;
-}
-.card-text {
-  text-align: left;
-  font-size: 20px;
-}
-.card-width {
-  width: 50%;
-}
-.card-count {
-  text-align: left;
-}
-.chat {
-    display: inline-block;
-    padding: 5px 20px;
-    background-color: dodgerblue;
-    border-radius: 10px;
-    color: white;
-    font-size: 20px;
-    height: 40px;
-}
-.weather-report {
-  padding: 0.5em 1em;
-  margin: 2em 0;
-  color: #FFF;
-  background: #87CEFA;
-  border-bottom: solid 6px #3f87ce;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
-  border-radius: 9px;
-}
-.weather-date {
-  font-size: 20px;
-}
-.weather-main {
-  font-size: 20px;
-}
-.weather-temp {
-  font-size: 20px;
-}
 
 .error_explanation {
   width: 450px;
@@ -191,22 +93,6 @@ h2 {
 #notice {
   color: #119b30;
   font-size: 20px;
-}
-// 画像スライドショー
-.image1 {
-  background-image: url(image1.jpg);
-}
-.image2 {
-  background-image: url(image2.jpg);
-}
-.image3 {
-  background-image: url(image3.jpg);
-}
-.image4 {
-  background-image: url(image4.jpg);
-}
-.image5 {
-  background-image: url(image5.jpg);
 }
 #container{
   width: 100%;
@@ -461,17 +347,9 @@ table {
   margin:auto
 }
 
-.map-center {
-  display: flex;
-  justify-content: center;
-}
-
-
 @media screen and (max-width: 600px) {
     .main-visual {
       width: 100%;
-      background-position: top;
-      background-size: contain;
     }
     .card-title {
       text-align: left;
@@ -555,4 +433,9 @@ table {
   padding: 0.5em;
   list-style-type: none!important;
   font-weight: bold;
+}
+
+.login_btn, .sign_up_btn {
+  display: block;
+  width: 100%;
 }

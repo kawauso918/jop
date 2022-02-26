@@ -7,13 +7,13 @@
         <h4>写真で繋がろう</h4>
           <div class="btn-wrapper col-5 mx-auto">
             <div class="row">
-              <%= link_to "ゲストログイン", users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+              <%= link_to "ゲストログイン", users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in login_btn", method: :post %>
             </div>
             <div class="row">
-              <%= link_to "ログイン", new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
+              <%= link_to "ログイン", new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in login_btn" %>
             </div>
             <div class="row">
-              <%= link_to "新規登録", new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
+              <%= link_to "新規登録", new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up sign_up_btn" %>
             </div>
           </div>
      </div>

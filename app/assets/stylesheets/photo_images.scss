@@ -1,3 +1,50 @@
-// Place all the styles related to the PhotoImages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.photo_image {
+  font-size: 20px;
+}
+.ranking {
+  counter-reset: rank;
+}
+
+.ranking .ranking-no {
+  position: relative;
+}
+
+.ranking .ranking-no:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.ranking .ranking-no::before { /* ラベルと順位のスタイル */
+  counter-increment: rank;
+  content: counter(rank) " 位";
+  position: absolute;
+  padding: 8px 14px;
+  font-size: calc(10px + 1vw);
+  color: #fff;
+  background: rgba(0,0,0,0.5);
+}
+
+.ranking img { /* 画像のスタイル */
+  height: 150px;
+  width: auto;
+  object-fit: cover;
+}
+.impressionist_count {
+  text-align: center;
+  width: 20%;
+  font-size: 20px;
+  border-radius: 2px;
+}
+.card-title {
+  text-align: left;
+  font-size: 30px;
+}
+.card-text {
+  text-align: left;
+  font-size: 20px;
+}
+.card-width {
+  width: 50%;
+}
+.card-count {
+  text-align: left;
+}
