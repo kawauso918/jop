@@ -17,7 +17,6 @@
       type: 'GET',
     })
     .done(function(data) {
-      cosole.log(data)
       var insertHTML = "";
       var cityName = '<h2>' + data.city.name + '</h2>';
       $('#city-name').html(cityName);
