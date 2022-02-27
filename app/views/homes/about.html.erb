@@ -17,6 +17,7 @@
       type: 'GET',
     })
     .done(function(data) {
+      cosole.log(data)
       var insertHTML = "";
       var cityName = '<h2>' + data.city.name + '</h2>';
       $('#city-name').html(cityName);
@@ -31,7 +32,9 @@
 
   function buildHTML(data, i) {
   var Week = new Array("（日）","（月）","（火）","（水）","（木）","（金）","（土）");
-  var date = new Date (data.list[i].dt_txt);
+  var dt   = data.list[i].dt_txt
+  var date = new Date(dt.replace(/-/g,"/"));
+  // var date = new Date (data.list[i].dt_txt);
   date.setHours(date.getHours() + 9);
   var month = date.getMonth()+1;
   var day = month + "月" + date.getDate() + "日" + Week[date.getDay()] + date.getHours() + "：00";
