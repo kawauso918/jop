@@ -17,7 +17,6 @@
       type: 'GET',
     })
     .done(function(data) {
-      console.log(data);
       var insertHTML = "";
       var cityName = '<h2>' + data.city.name + '</h2>';
       $('#city-name').html(cityName);
@@ -27,7 +26,6 @@
       $('#weather').html(insertHTML);
     })
     .fail(function(data) {
-      console.log("失敗しました");
     });
   });
 
