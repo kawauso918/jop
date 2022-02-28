@@ -78,6 +78,7 @@
       </div>
     </footer>
      <!--ハンバーガーメニュー-->
+    <% if user_signed_in? %>
     <div id="sp-menu">
       <div class="container">
       <h2>MENU</h2>
@@ -97,6 +98,8 @@
         <span></span>
       </a>
     </div>
+    <% else %>
+    <% end %>
   </body>
 </html>
 <!--ハンバーガーメニュー-->
