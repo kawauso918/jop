@@ -112,9 +112,9 @@ h2 {
 /* ---- ハンバーガーアイコン ---- */
 #hm-icon {
   position: fixed;
-  right: 20px;
-  top: 14px;
-  z-index: 10;
+  right: 30px;
+  bottom: 5px;
+  z-index: 10000;
 }
 .menu-trigger,
 .menu-trigger span {
@@ -132,7 +132,7 @@ h2 {
   left: 0;
   width: 100%;
   height: 4px;
-  background-color: #fff;
+  background-color: #000;
   border-radius: 4px;
 }
 .menu-trigger span:nth-child(1) {
@@ -167,7 +167,7 @@ h2 {
   width: 100%;
   min-height: 100%;
   display: none;
-  z-index: 9;
+  z-index: 9999;
 }
 #sp-menu li {
   text-align: center;
@@ -372,8 +372,9 @@ table {
       width: 5px;
       height: 24px;
     }
+
     .navbar-toggler {
-      padding: 0.25rem 1.75rem;
+      padding: 0.25rem 0.75rem;
       font-size: 1.25rem;
       line-height: 1;
       background-color: transparent;
@@ -438,4 +439,10 @@ table {
 .login_btn, .sign_up_btn {
   display: block;
   width: 100%;
+}
+footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
