@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get 'chat/:id', to: 'chats#show', as: 'chat'
   resources :chats, only: [:create]
   # カレンダー機能
-  resources :seminars, only: [:index]
+  resources :seminars, only: [:index, :new, :create]
   #地図表示
   get 'maps/index'
   root to: 'maps#index'

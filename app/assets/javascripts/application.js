@@ -53,7 +53,34 @@ function displayCalendar(){
         eventRender: function(event, element) {
             element.css("font-size", "0.8em");
             element.css("padding", "5px");
-        }
+        },
+    dayClick: function (info) {
+        console.log(info._d)
+        const year  = info._d.getFullYear();
+        const month = (info._d.getMonth() + 1);
+        const day   = info._d.getDate();
+
+        $.ajax({
+            type: 'GET',
+            url:  '/seminars/new',
+        }).done(function (res) {
+            $('.modal-body').html(res);
+
+            $('#event_start_1i').val(year);
+            $('#event_start_2i').val(month);
+            $('#event_start_3i').val(day);
+
+            $('#event_end_1i').val(year);
+            $('#event_end_2i').val(month);
+            $('#event_end_3i').val(day);
+
+            console.log("fade in")
+            $('#modal').hide().fadeIn();
+
+        }).fail(function (result) {
+            alert("failed");
+        });
+    },
     });
 }
 
