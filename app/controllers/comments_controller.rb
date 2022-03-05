@@ -15,7 +15,9 @@ class CommentsController < ApplicationController
   def destroy
     @photo_image = PhotoImage.find(params[:photo_image_id])
     comment = @photo_image.comments.find(params[:id])
-    comment.destroy
+    if comment.user_id == current_user.id
+      comment.destroy
+    end
      # app/views/comments/destroy.js.erbを参照する
   end
 
