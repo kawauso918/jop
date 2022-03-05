@@ -83,7 +83,11 @@ function displayCalendar(){
     },
     });
 }
-
+function onCloseModal(){
+    $('#modal').hide();
+    $('#response-modal').hide();
+    console.log('modal hide');
+}
 
 $(document).on('turbolinks:load', function () {
     displayCalendar();

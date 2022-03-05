@@ -1,9 +1,10 @@
-.modal{
+#modal{
     display: none;
     height: 100vh;
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 99999;
 }
 .modal-content{
     background: #fff;
@@ -12,4 +13,12 @@
     position: absolute;
     top: 50%;
     transform: translate(-50%,0%);
+}
+#response-modal{
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 40%;
+    width: 100%;
+    z-index: 9999;
 }
