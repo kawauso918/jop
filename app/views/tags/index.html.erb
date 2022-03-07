@@ -1,0 +1,15 @@
+<div class="container">
+  <div style= "text-align: left;">
+    <h1><i class="fas fa-tag"></i>タグ一覧</h1>
+      <ul>
+        <% @tags.each do |tag| %>
+          <li class= "tag">
+              <%= link_to tag_path(tag.id) do %>
+              <%= tag.photo_images.count %>
+              <%= tag.name %>
+              <% end %>
+          </li>
+        <% end %>
+      </ul>
+  </div>
+</div>
