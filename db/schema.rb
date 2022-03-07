@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_21_110351) do
+ActiveRecord::Schema.define(version: 2022_03_07_025055) do
 
   create_table "chats", force: :cascade do |t|
     t.integer "user_id"
@@ -112,6 +112,30 @@ ActiveRecord::Schema.define(version: 2022_02_21_110351) do
     t.string "title"
     t.datetime "starts_at"
     t.datetime "ends_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tag_maps", force: :cascade do |t|
+    t.integer "photo_image_id_id"
+    t.integer "tag_id_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["photo_image_id_id"], name: "index_tag_maps_on_photo_image_id_id"
+    t.index ["tag_id_id"], name: "index_tag_maps_on_tag_id_id"
+  end
+
+  create_table "tag_photos", force: :cascade do |t|
+    t.integer "photo_image_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["photo_image_id"], name: "index_tag_photos_on_photo_image_id"
+    t.index ["tag_id"], name: "index_tag_photos_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

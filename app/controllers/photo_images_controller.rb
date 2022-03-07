@@ -11,6 +11,8 @@ class PhotoImagesController < ApplicationController
     @photo_image = PhotoImage.new(photo_image_params)
     @photo_image.user_id = current_user.id
     if @photo_image.save
+      # タグの保存
+      @photo_image.save_tags(params[:photo_image][:tag])
       redirect_to photo_images_path, notice: 'You have created photo_image successfully.'
     else
       render :new
@@ -36,6 +38,8 @@ class PhotoImagesController < ApplicationController
     @photo_image = PhotoImage.find(params[:id])
     @photo_images = PhotoImage.all
     if @photo_image.update(photo_image_params)
+       # タグの更新
+      @photo_image.save_tags(params[:photo_image][:tag])
       redirect_to photo_image_path, notice: 'You have updated photo_image successfully.'
     else
       render :edit
