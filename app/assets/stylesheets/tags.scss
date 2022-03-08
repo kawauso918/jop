@@ -1,4 +1,4 @@
-.tag{
+.tag {
   padding: 0;
   position: relative;
   color: black;
@@ -9,4 +9,12 @@
   border-radius: 0 15px 15px 0;/*右側の角だけ丸く*/
   padding: 0.5em;
   list-style-type: none!important;
+}
+.tag-name {
+  display: inline-block;
+    padding: 5px 20px;
+    background-color: white;
+    border-radius: 10px;
+    color: darkslategray;
+    font-size: 20px;
 }

@@ -1,6 +1,6 @@
 <div class="container">
   <div style= "text-align: left;">
-    <h2><i class="fas fa-tag"></i>タグ付け詳細</h2>
+    <h2 class="tag-name"><i class="fas fa-tag"></i>タグ付け詳細</h2>
     <i class="fas fa-tags"></i><%= link_to 'Tags List', tags_path, class: "btn btn-sm btn-success" %>
     <i class="fas fa-trash-alt"></i><%= link_to 'Delete', tag_path(@tag), class: "btn btn-sm btn-danger", method: :delete, data: {confirm: '関連づいた記事のタグが空になりますがタグを削除しますか？'} %>
   </div>
