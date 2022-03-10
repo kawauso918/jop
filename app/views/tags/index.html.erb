@@ -9,7 +9,7 @@
       <ul>
         <% @tags.each do |tag| %>
           <li class= "tag">
-            <i class="fas fa-user-tag"></i>
+            <i class="fas fa-user-tag fa-lg"></i>
             <%= link_to tag_path(tag.id) do %>
               <%= tag.photo_images.count %>
               <%= tag.name %>
