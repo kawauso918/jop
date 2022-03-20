@@ -41,6 +41,14 @@ class UsersController < ApplicationController
     @results = @q.result
   end
 
+  def hide
+    @user = User.find(params[:id])
+    @user.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
+  end
+
   private
 
   def user_params

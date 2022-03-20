@@ -36,5 +36,7 @@ Rails.application.routes.draw do
   resources :maps, only: [:index]
   #タグ機能
   resources :tags, only: [:index, :show, :destroy]
+  #退会ボタン
+  put "/users/:id/hide" => "users#hide", as: 'users_hide'
 
 end
