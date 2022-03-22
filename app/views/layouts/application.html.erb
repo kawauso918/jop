@@ -44,10 +44,6 @@
                 <i class="fas fa-tags"></i>
                 <%= link_to "タグ付け一覧", tags_path, class: "navbar-brand" %>
               </p>
-              <p>
-                <i class="fas fa-map"></i>
-                <%= link_to "マップ",  maps_path, class: "navbar-brand" %>
-              </p>
             </div>
 
             <div id="tab2" class="tab">
@@ -73,6 +69,10 @@
                 <% else %>
                   <%= link_to "お知らせ",notifications_path,  class: "navbar-brand"  %>
                 <% end %>
+              </p>
+              <p>
+                <i class="fas fa-map"></i>
+                <%= link_to "マップ",  maps_path, class: "navbar-brand" %>
               </p>
             </div>
           </div>
