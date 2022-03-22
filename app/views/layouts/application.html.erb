@@ -40,6 +40,14 @@
                 <i class="fas fa-camera"></i>
                 <%= link_to '投稿フォーム',  new_photo_image_path, class: "navbar-brand" %>
               </p>
+              <p>
+                <i class="fas fa-tags"></i>
+                <%= link_to "タグ付け一覧", tags_path, class: "navbar-brand" %>
+              </p>
+              <p>
+                <i class="fas fa-map"></i>
+                <%= link_to "マップ",  maps_path, class: "navbar-brand" %>
+              </p>
             </div>
 
             <div id="tab2" class="tab">
@@ -47,16 +55,16 @@
                 <i class="fas fa-users"></i>
                 <%= link_to "ユーザー一覧", users_path, class: "navbar-brand" %>
               </p>
+              <p>
+                <i class="fas fa-calendar-alt"></i>
+                <%= link_to "カレンダー",  seminars_path, class: "navbar-brand" %>
+              </p>
             </div>
 
             <div id="tab3" class="tab">
               <p>
                 <i class="fas fa-user-alt"></i>
                 <%= link_to "プロフィール", user_path(current_user.id), class: "navbar-brand" %>
-              </p>
-              <p>
-                <i class="fas fa-tags"></i>
-                <%= link_to "タグ付けリスト", tags_path, class: "navbar-brand" %>
               </p>
               <p>
                 <i class="fas fa-bell"></i>
@@ -96,8 +104,6 @@
       </div>
         <ul>
           <li><a href="#"><%= link_to "天気予報",  home_about_path, class: "navbar-brand" %></a></li>
-          <li><a href="#"><%= link_to "マップ",  maps_path, class: "navbar-brand" %></a></li>
-          <li><a href="#"><%= link_to "カレンダー",  seminars_path, class: "navbar-brand" %></a></li>
           <li><a href="#"><%= link_to "問い合わせ",  new_contact_path, class: "navbar-brand" %></a></li>
           <li><a href="#"><%= link_to "ログアウト", destroy_user_session_path, class: "navbar-brand", method: :delete %></a></li>
         </ul>
