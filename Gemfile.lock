@@ -118,6 +118,7 @@ GEM
       jquery-rails (>= 4.0.5, < 5.0.0)
       jquery-ui-rails (>= 5.0.2)
       momentjs-rails (>= 2.9.0)
+    geocoder (1.7.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
     http-accept (1.7.0)
@@ -382,6 +383,7 @@ DEPENDENCIES
   faker
   font-awesome-sass (~> 5.13)
   fullcalendar-rails
+  geocoder
   impressionist (~> 1.6.1)
   jbuilder (~> 2.5)
   jquery-rails

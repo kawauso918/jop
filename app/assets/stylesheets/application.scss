@@ -490,6 +490,8 @@ footer {
   background: #fff;
   border: 1px solid #000;
   border-top: none;
+  display: flex;
+  justify-content: space-around;
 }
 
 #tab-contents p {
