@@ -12,6 +12,12 @@
       </div>
       <%= f.text_field :tag, value: @photo_image.tags.pluck(:name), placeholder: "タグ付けはここへ" %><br>
     </div>
+    <div class="input-group mb-3 mt-4">
+      <div class="input-group-prepend">
+        <span class="input-group-text" aria-hidden="true"><i class="fas fa-location-arrow"></i></span>
+      </div>
+      <%= f.text_field :address, value: @photo_image.tags.pluck(:name), placeholder: "写真場所はここへ" %><br>
+    </div>
       <%= f.text_area :caption, class:"form-control", rows:3, placeholder:"写真の説明するならここへ" %><br>
       <hr>
       <%= f.submit '投稿',class: "btn btn-lg btn-block btn-info mt-4" %>
