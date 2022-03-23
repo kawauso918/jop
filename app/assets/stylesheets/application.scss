@@ -113,7 +113,7 @@ h2 {
 #hm-icon {
   position: fixed;
   right: 30px;
-  bottom: 5px;
+  top: 15px;
   z-index: 10000;
 }
 .menu-trigger,
@@ -132,7 +132,7 @@ h2 {
   left: 0;
   width: 100%;
   height: 4px;
-  background-color: #000;
+  background-color: #f8f9fa;
   border-radius: 4px;
 }
 .menu-trigger span:nth-child(1) {
@@ -479,8 +479,6 @@ footer {
 }
 
 #tab-contents {
-  display: flex;
-  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -490,8 +488,7 @@ footer {
   background: #fff;
   border: 1px solid #000;
   border-top: none;
-  display: flex;
-  justify-content: space-around;
+  margin: 0 auto;
 }
 
 #tab-contents p {
