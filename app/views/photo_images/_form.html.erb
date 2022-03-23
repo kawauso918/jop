@@ -16,7 +16,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text" aria-hidden="true"><i class="fas fa-location-arrow"></i></span>
       </div>
-      <%= f.text_field :address, value: @photo_image.tags.pluck(:name), placeholder: "写真場所はここへ" %><br>
+      <%= f.text_field :address, class:"form-control", placeholder:"写真場所はここへ" %><br>
     </div>
       <%= f.text_area :caption, class:"form-control", rows:3, placeholder:"写真の説明するならここへ" %><br>
       <hr>

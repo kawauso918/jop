@@ -7,6 +7,8 @@ class PhotoImage < ApplicationRecord
   has_many :tags, through: :tag_photos
   attachment :image
   is_impressionable
+  geocoded_by :address
+  after_validation :geocode
 
   validates :name, presence: true
   validates :image, presence: true
@@ -55,8 +57,6 @@ class PhotoImage < ApplicationRecord
     end
   end
 
-  geocoded_by :address
-  after_validation :geocode
 
 
 end
