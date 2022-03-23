@@ -12,6 +12,7 @@
           <% tag.name %>
           <% end %>
       <% end %><br>
+      <i class="fas fa-location-arrow"></i><%= @photo_image.address %><br>
       <% if @photo_image.user == current_user %>
       <%= link_to "編集", edit_photo_image_path(@photo_image), class: "btn btn-sm btn-success" %>
       <%= link_to "削除", photo_image_path(@photo_image), class: "btn btn-sm btn-danger", method: :delete %>
