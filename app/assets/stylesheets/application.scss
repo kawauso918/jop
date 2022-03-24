@@ -481,8 +481,12 @@ footer {
 #tab-contents {
   flex-wrap: wrap;
 }
+#tab-contents:hover {
+  display: block;
+}
 
 #tab-contents .tab {
+  display: none;
   width: 75%;
   padding: 15px;
   background: #fff;
