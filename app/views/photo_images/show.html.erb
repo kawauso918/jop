@@ -51,13 +51,13 @@
 
 
 <style>
-    #map {
-      height: 300px;
-      width: 300px;
-    }
+  #map {
+    height: 300px;
+    width: 300px;
+  }
 </style>
 <script>
-    window.initMap = function() {
+  window.initMap = function() {
     let map;
     geocoder = new google.maps.Geocoder()
     var test ={lat: <%= @photo_image.latitude %>, lng: <%= @photo_image.longitude %>};
