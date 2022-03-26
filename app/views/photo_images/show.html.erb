@@ -57,9 +57,8 @@
     }
 </style>
 <script>
-  let map
-
-  function initMap(){
+    window.initMap = function() {
+    let map;
     geocoder = new google.maps.Geocoder()
     var test ={lat: <%= @photo_image.latitude %>, lng: <%= @photo_image.longitude %>};
 
@@ -80,6 +79,13 @@
       map: map,
       title: contentString
     });
+  };
+  if (window.google == null || window.google.maps == null)  {
+    var script = document.createElement('script');
+    script.src = 'https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>&callback=initMap';
+    script.async = true;
+    document.head.appendChild(script);
+  } else {
+    window.initMap()
   }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>&callback=initMap" async defer></script>
